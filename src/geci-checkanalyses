@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#
+INSTANCE=${1:-analyses.json}
+jsonschema --instance $INSTANCE ~/.schemas/analyses-schema.json

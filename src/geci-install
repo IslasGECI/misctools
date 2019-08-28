@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#
+# Instala repos de Ciencia de Datos • GECI de clase 1
+
+# ARGUMENTOS POSICIONALES:
+REPO=${1}
+REVISION=${2:-develop}
+
+# CONSTANTES:
+URL=https://github.com/IslasGECI/${REPO}.git
+DIR0=${PWD}
+
+
+mkdir --parent ~/tmp         # Crea una carpeta temporal
+cd ~/tmp                     # Entra a la carpeta temporal
+git clone ${URL}             # Clona el repo
+cd ${REPO}                   # Entra a repo clonado
+git reset --hard ${REVISION} # Actualiza el repo a la revisión deseada
+make install                 # Instala el repo
+cd ..                        # Salte del repo
+rm --recursive ${REPO}       # Elimina el repo
+cd ${DIR0}                   # Regresa al directorio de trabajo inicial

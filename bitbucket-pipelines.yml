@@ -1,0 +1,10 @@
+image: islasgeci/jupyter:3691
+
+pipelines:
+  pull-requests:
+    '**':
+      - step:
+          script:
+            - make requirements
+            - make install
+            - make tests
