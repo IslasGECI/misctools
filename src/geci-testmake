@@ -27,10 +27,8 @@ function get_help() {
   echo "                 argumentos también despliega este mensaje de ayuda"
   echo "  -v, --version  Muestra la versión de $NOMBRE"
   echo
-  echo "Ejemplos:"
-  echo "  $NOMBRE misctools hola-mundo"
-  echo "  $NOMBRE gef-sur resultados/CCcangrejo.png 8a0e43d34b74"
-  echo "  $NOMBRE datatools import develop phony"
+  echo "Ejemplo:"
+  echo "  $NOMBRE analisis reports/capacitacion_ciencia_datos_datacamp.pdf"
   echo
   echo "Nota:"
   echo "  Para configurar el entorno por primera vez consulta:"
