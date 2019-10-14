@@ -91,9 +91,9 @@ echo "------------------------------"
 
 # Borra el directorio de trabajo si ya existe, luego crealo
 if [ -d $RUTA_CLON ]; then
-  rm -fR $RUTA_CLON
+  rm --force --recursive $RUTA_CLON
 fi
-mkdir -p $RUTA_CLON
+mkdir --parents $RUTA_CLON
 
 # Verifica que el directorio esté vacío
 if [ ! -d $RUTA_CLON ] || [ -n "$(ls -A $RUTA_CLON)" ]; then
@@ -110,7 +110,7 @@ echo "Clona repositorio:"
 echo "------------------"
 git clone https://${BITBUCKET_USERNAME}:${BITBUCKET_PASSWORD}@bitbucket.org/IslasGECI/${REPO}.git $RUTA_CLON
 cd $RUTA_CLON
-git checkout --force $REVISION && git rev-parse --short $REVISION >$RUTA_CLON/.git_checkout_succeeded || rm -f $RUTA_CLON/.git_checkout_succeeded
+git checkout --force $REVISION && git rev-parse --short $REVISION >$RUTA_CLON/.git_checkout_succeeded || rm --force $RUTA_CLON/.git_checkout_succeeded
 
 if [ -f $RUTA_CLON/.git_checkout_succeeded ]; then
 
@@ -119,7 +119,7 @@ if [ -f $RUTA_CLON/.git_checkout_succeeded ]; then
   echo "Construye imagen:"
   echo "-----------------"
   docker image rm --force $IMAGEN 2>/dev/null
-  docker build -t $IMAGEN .
+  docker build --tag $IMAGEN .
 
   # Corre contenedor
   echo
@@ -185,7 +185,7 @@ else
   else
     echo "ERROR: No pude generar objetivo $OBJETIVO"
     if [[ "${REVISION}" == "develop" ]] || [[ "${REVISION}" == "master" ]]; then
-      curl -X POST -H 'Content-type: application/json' --data '{"text":"*'${USER}'* no pudo generar el objetivo `'${REPO}'/'${OBJETIVO}'` en _'${HOSTNAME}'_"}' https://hooks.slack.com/services/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
+      curl --request POST --header 'Content-type: application/json' --data '{"text":"*'${USER}'* no pudo generar el objetivo `'${REPO}'/'${OBJETIVO}'` en _'${HOSTNAME}'_"}' https://hooks.slack.com/services/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
     fi
     exit 1
   fi
