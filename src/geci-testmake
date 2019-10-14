@@ -169,7 +169,19 @@ fi
 function log_result() {
   local EXISTE_OBJETIVO=$1
   echo "${REPO},${OBJETIVO},${REVISION},${ID},${PHONY},${USER},${HOSTNAME},$(date -Iseconds),${ES_MAKE_EXISTOSO},${ES_PHONY},${EXISTE_OBJETIVO}" >>$TESTMAKE_LOG
-  curl --location --request POST "http://islasgeci.org:500/api/v1/records?repo=${REPO}&objetivo=${OBJETIVO}&revision=${REVISION}&id=${ID}&phony=${PHONY}&analista=${USER}&maquina=${HOSTNAME}&timestamp=$(date -Iseconds)&es_make_exitoso=${ES_MAKE_EXISTOSO}&es_phony=${ES_PHONY}&existe_objetivo=${EXISTE_OBJETIVO}"
+  URL="http://islasgeci.org:500/api/v1/records?\
+repo=${REPO}&\
+objetivo=${OBJETIVO}&\
+revision=${REVISION}&\
+id=${ID}&\
+phony=${PHONY}&\
+analista=${USER}&\
+maquina=${HOSTNAME}&\
+timestamp=$(date -Iseconds)&\
+es_make_exitoso=${ES_MAKE_EXISTOSO}&\
+es_phony=${ES_PHONY}&\
+existe_objetivo=${EXISTE_OBJETIVO}"
+  curl --location --request POST "$URL"
 }
 if [ -s $RUTA_CLON/$OBJETIVO ]; then
   EXISTE_OBJETIVO=1
