@@ -5,12 +5,12 @@ Conjunto de herramientas pequeñas y prototipos del equipo de Ciencia de Datos -
 ## Instalación
 
 ```bash
-hg clone https://bitbucket.org/IslasGECI/misctools
+git clone https://github.com/IslasGECI/misctools.git
 cd misctools
-make install
+sudo make install
 ```
 
-## Configuración del `testMake` para Ubuntu 18.04 (Bionic Beaver)
+## Configuración del `geci-testmake` para Ubuntu 18.04 (Bionic Beaver)
 
 Exporta tus credenciales de Bitbucket como variables de entorno:
 
@@ -35,7 +35,7 @@ Verifica que tienes Docker instalado:
 docker --version
 ```
 
-Para correr Docker sin `sudo` (_Got permission denied..._) agrega tu usuario al grupo `docker`:
+Para correr Docker sin `sudo` (y evitar el mensaje: _Got permission denied..._) agrega tu usuario al grupo `docker`:
 
 ```bash
 sudo usermod -aG docker $USER
@@ -61,8 +61,8 @@ Si no tienes cURL instálalo con:
 sudo apt install curl
 ```
 
-Corre el `testMake`:
+Corre el `geci-testmake`:
 
 ```bash
-testMake misctools hola-mundo
+geci-testmake misctools hola-mundo
 ```
