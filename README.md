@@ -64,5 +64,5 @@ sudo apt install curl
 Corre el `geci-testmake`:
 
 ```bash
-geci-testmake misctools hola-mundo
+geci-testmake hola mundo
 ```
