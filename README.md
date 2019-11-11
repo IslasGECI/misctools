@@ -2,7 +2,25 @@
 
 Conjunto de herramientas pequeñas y prototipos del equipo de Ciencia de Datos - GECI.
 
-## Instalación
+Aquí describo cómo instalar `misctools` y cómo configurar `geci-testmake` en Linux Mint 19.2 (Tina) y en Ubuntu 18.04 (Bionic Beaver).
+
+## Prerequisitos
+
+En Linux Mint, primero deberás instalar Git; en Ubuntu, Git ya viene instalado.
+
+Verifica si tienes Git instalado:
+
+```bash
+git --version
+```
+
+Si no tienes Git instálalo con:
+
+```bash
+sudo apt install git
+```
+
+## Instalación de misctools
 
 ```bash
 git clone https://github.com/IslasGECI/misctools.git
@@ -10,7 +28,7 @@ cd misctools
 sudo make install
 ```
 
-## Configuración del `geci-testmake` para Ubuntu 18.04 (Bionic Beaver)
+## Configuración de `geci-testmake`
 
 Exporta tus credenciales de Bitbucket como variables de entorno:
 
@@ -41,7 +59,7 @@ Para correr Docker sin `sudo` (y evitar el mensaje: _Got permission denied..._) 
 sudo usermod -aG docker $USER
 ```
 
-Haz _log out_ de Ubuntu y luego _log in_ nuevamente para que el sistema re-evalue tu pertenencia al grupo.
+En Ubuntu haz _log out_ y luego _log in_ para que el sistema re-evalue tu pertenencia al grupo. En Linux Mint deberás reiniciar la máquina ya que hacer _log out_ y _log in_ no es suficiente.
 
 Verifica que puedes correr Docker sin `sudo`:
 
@@ -61,7 +79,7 @@ Si no tienes cURL instálalo con:
 sudo apt install curl
 ```
 
-Corre el `geci-testmake`:
+Finalmente, corre `geci-testmake`:
 
 ```bash
 geci-testmake hola mundo
