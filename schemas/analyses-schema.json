@@ -5,32 +5,71 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["name", "description", "docker_parent_image", "report", "results", "scripts", "data", "requirements"],
+    "required": [
+      "name",
+      "description",
+      "docker_parent_image",
+      "report",
+      "results",
+      "scripts",
+      "data",
+      "requirements"
+    ],
     "properties": {
-      "name": { "type": "string" },
-      "description": { "type": "string" },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
       "docker_parent_image": {
         "type": "string",
         "pattern": "^islasgeci/"
       },
-      "report": { "type": "string" },
+      "report": {
+        "type": "string"
+      },
       "results": {
         "type": "array",
-        "items": {"type": "string"}
+        "items": {
+          "type": "string"
+        }
       },
       "scripts": {
         "type": "array",
-        "items": {"type": "string"}
+        "items": {
+          "type": "string"
+        }
       },
       "data": {
         "type": "array",
         "items": {
           "type": "object",
-          "required": ["source", "filename", "version"],
+          "required": [
+            "source",
+            "filename",
+            "version"
+          ],
           "properties": {
-            "source": { "type": "string" },
-            "filename": { "type": "string" },
-            "version": { "type": "string" }
+            "source": {
+              "type": "string"
+            },
+            "filename": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "version": {
+              "type": "string"
+            }
           }
         }
       },
@@ -38,14 +77,25 @@
         "type": "array",
         "items": {
           "type": "object",
-          "required": ["type", "name"],
+          "required": [
+            "type",
+            "name"
+          ],
           "properties": {
             "type": {
               "type": "string",
-              "enum": ["python", "r", "system"]
+              "enum": [
+                "python",
+                "r",
+                "system"
+              ]
             },
-            "name": { "type": "string" },
-            "version": { "type": "string" }
+            "name": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
           }
         }
       }
