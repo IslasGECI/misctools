@@ -91,7 +91,17 @@
               ]
             },
             "name": {
-              "type": "string"
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
             },
             "version": {
               "type": "string"
