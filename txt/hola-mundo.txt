@@ -1,5 +1,0 @@
-
-
-¡Hola de parte de Ciencia de Datos - GECI!
-Este mensaje muestra que tu instalación de 'testMake' parece estar funcionando correctamente.
-
