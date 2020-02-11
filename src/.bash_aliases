@@ -4,25 +4,22 @@ alias cld='\
       docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
 
 # Corre bash de imagen islasgeci/base en un contenedor
-alias geci-bash='docker run \
+alias geci-base='docker run \
       --interactive \
       --rm \
       --tty \
       --volume $PWD:/workdir \
-      islasgeci/base:latest bash -c "umask 000 && bash"'
+      islasgeci/base:latest'
 
 # Corre bash de imagen islasgeci/jupyter en un contenedor
-alias geci-bash='docker run \
-      --interactive \
+alias geci-jupyter='docker run \
+      --detach \
       --rm \
-      --tty \
       --volume $PWD:/workdir \
-      islasgeci/jupyter:latest bash -c "umask 000 && bash"'
+      islasgeci/jupyter:latest'
 
 # Consturye imagen en a partir del Dockerfile del directorio actual
-alias geci-build='docker build --tag islasgeci/${PWD##*/}:latest . && \
-                  docker build --tag islasgeci/${PWD##*/}:$(docker images -q islasgeci/${PWD##*/}:latest | cut -c 1-4) .'
-
+alias geci-build='docker build --tag islasgeci/${PWD##*/}:latest .'
 
 # Enlista imágenes de Docker
 alias lsi='docker image ls'
