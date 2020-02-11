@@ -12,11 +12,14 @@ alias geci-base='docker run \
       islasgeci/base:latest'
 
 # Corre bash de imagen islasgeci/jupyter en un contenedor
-alias geci-jupyter='docker run \
-      --detach \
-      --rm \
-      --volume $PWD:/workdir \
-      islasgeci/jupyter:latest'
+alias geci-jupyter='\
+      docker run \
+        --detach \
+        --publish 8888:8888 \
+        --rm \
+        --volume $PWD:/workdir \
+        islasgeci/jupyter:latest && \
+      xdg-open http://localhost:8888'
 
 # Consturye imagen en a partir del Dockerfile del directorio actual
 alias geci-build='docker build --tag islasgeci/${PWD##*/}:latest .'
