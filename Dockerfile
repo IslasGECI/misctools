@@ -3,3 +3,4 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
             csvkit \
             gnumeric \
             jq
+CMD [ "make" ]
