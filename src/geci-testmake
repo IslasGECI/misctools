@@ -96,7 +96,7 @@ fi
 mkdir --parents $RUTA_CLON
 
 # Verifica que el directorio esté vacío
-if [ ! -d $RUTA_CLON ] || [ -n "$(ls -A $RUTA_CLON)" ]; then
+if [ ! -d $RUTA_CLON ] || [ -n "$(ls --almost-all $RUTA_CLON)" ]; then
   echo "ERROR: No pude preparar $RUTA_CLON como directorio de trabajo"
   exit 1
 else
