@@ -69,8 +69,8 @@ DIR0=$PWD # Directorio actual del usuario
 CONTENEDOR=testmake_${REPO}_${REVISION//\//_}
 CONTENEDOR=${CONTENEDOR,,}
 IMAGEN=$CONTENEDOR
-RUTA_CLON=$HOME/.testmake/$REPO # Directorio de trabajo
-TESTMAKE_LOG=$HOME/.testmake/testmake.log.csv
+RUTA_CLON=/.testmake/$REPO # Directorio de trabajo
+TESTMAKE_LOG=/.testmake/testmake.log.csv
 
 # Despliega argumentos recibidos para verificar que los valores sean correctos
 echo
@@ -96,7 +96,7 @@ fi
 mkdir --parents $RUTA_CLON
 
 # Verifica que el directorio esté vacío
-if [ ! -d $RUTA_CLON ] || [ -n "$(ls -A $RUTA_CLON)" ]; then
+if [ ! -d $RUTA_CLON ] || [ -n "$(ls --almost-all $RUTA_CLON)" ]; then
   echo "ERROR: No pude preparar $RUTA_CLON como directorio de trabajo"
   exit 1
 else
@@ -196,9 +196,6 @@ else
     exit 0
   else
     echo "ERROR: No pude generar objetivo $OBJETIVO"
-    if [[ "${REVISION}" == "develop" ]] || [[ "${REVISION}" == "master" ]]; then
-      curl --request POST --header 'Content-type: application/json' --data '{"text":"*'${USER}'* no pudo generar el objetivo `'${REPO}'/'${OBJETIVO}'` en _'${HOSTNAME}'_"}' https://hooks.slack.com/services/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
-    fi
     exit 1
   fi
 fi

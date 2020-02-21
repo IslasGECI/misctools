@@ -44,14 +44,3 @@ function geci-cli {
         islasgeci/${PWD##*/} bash -c "umask 000 && ${COMANDO}"
     cd ${DIR0}
 }
-
-# Corre Jupyter
-function geci-jupyter {
-    RUTA_NOTEBOOKS=${1:-"/home/${USER}/notebooks/"}
-    docker run \
-      --detach \
-      --publish 8888:8888 \
-      --volume ${RUTA_NOTEBOOKS}:/workdir \
-      islasgeci/jupyter:latest \
-      && xdg-open http://localhost:8888
-}

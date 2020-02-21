@@ -2,7 +2,7 @@
 #
 # Verifica que 'geci-install' pueda instalar el repo 'dummy-clase1'
 
-geci-install dummy-clase1 f623a9a                    # Instala la revisión 'f623a9a' del repo 'dummy-clase1'
+geci-install dummy-clase1 35a56c9                    # Instala la el repo 'dummy-clase1'
 value_obtained=$(dummy_transformation.sh 2 3 4)      # Ejecuta el _script_ 'dummy_transformation.sh' de 'dummy-clase1'
 value_expected=10                                    # 10 = 2*3+4
 if [ $value_expected -eq $value_obtained ]; then     # Verifica si el valor obtenido es igul al valor esperado
