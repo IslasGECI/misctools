@@ -16,6 +16,8 @@ RUN apt-get install --yes --no-install-recommends \
       gnumeric \
       jq \
       make \
+      python \
+      r-base \
         && \
     apt clean
 CMD [ "make" ]
