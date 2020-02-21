@@ -69,8 +69,8 @@ DIR0=$PWD # Directorio actual del usuario
 CONTENEDOR=testmake_${REPO}_${REVISION//\//_}
 CONTENEDOR=${CONTENEDOR,,}
 IMAGEN=$CONTENEDOR
-RUTA_CLON=$HOME/.testmake/$REPO # Directorio de trabajo
-TESTMAKE_LOG=$HOME/.testmake/testmake.log.csv
+RUTA_CLON=/.testmake/$REPO # Directorio de trabajo
+TESTMAKE_LOG=/.testmake/testmake.log.csv
 
 # Despliega argumentos recibidos para verificar que los valores sean correctos
 echo
