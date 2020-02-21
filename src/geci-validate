@@ -35,7 +35,7 @@ function get_help {
 }
 
 function get_version {
-  echo "$NOMBRE v0.1.0+$(md5sum $0 | cut -c1-4)"
+  echo "$NOMBRE v0.1.0+$(md5sum $0 | cut --characters=1-4)"
 }
 
 function validate {
