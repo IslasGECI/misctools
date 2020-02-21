@@ -14,7 +14,7 @@ install:
 	chmod +x /usr/local/bin/geci-*
 	export PATH="$${PATH}:/usr/local/bin"
 	# Crea directorio de trabajo para geci-testmake 
-	mkdir /.testmake
+	mkdir --parents /.testmake
 	chown $${USER}:$${USER} /.testmake
 	# Instala esquemas de JSONs
 	if [ ! -d $${HOME}/.schemas ]; then mkdir $${HOME}/.schemas; fi
