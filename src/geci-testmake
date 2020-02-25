@@ -117,8 +117,7 @@ if [ -f $RUTA_CLON/.git_checkout_succeeded ]; then
   echo
   echo "Construye imagen:"
   echo "-----------------"
-  docker image rm --force $IMAGEN 2>/dev/null
-  docker build --tag $IMAGEN .
+  docker build --no-cache --tag $IMAGEN .
 
   # Corre contenedor
   echo
@@ -128,15 +127,13 @@ if [ -f $RUTA_CLON/.git_checkout_succeeded ]; then
     --env BITBUCKET_PASSWORD=$BITBUCKET_PASSWORD \
     --env BITBUCKET_USERNAME=$BITBUCKET_USERNAME \
     --name $CONTENEDOR \
+    --rm \
     --volume $RUTA_CLON:/workdir \
     $IMAGEN bash -c "\
       umask 000; \
       make $OBJETIVO \
         && echo $(date) > .make_succeeded \
         || rm --force .make_succeeded"
-
-  # Elimina contenedor
-  docker rm $CONTENEDOR
 
 fi
 
