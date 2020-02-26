@@ -97,7 +97,7 @@ Verifica que puedes correr Docker sin `sudo`:
 docker run hello-world
 ```
 
-Nn _bug_ en la instalación de este repo actualmente nos obliga a crear manualmente el directorio de trabajo para `geci-testmake`:
+Un _bug_ en la instalación de este repo actualmente nos obliga a crear manualmente el directorio de trabajo para `geci-testmake`:
 
 ```shell
 sudo mkdir /.testmake

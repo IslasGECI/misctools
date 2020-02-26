@@ -14,11 +14,10 @@ function get_help() {
   echo "  REPO:     Nombre del repositorio en bitbucket.org/IslasGECI/"
   echo "  OBJETIVO: Nombre del objetivo (dentro del 'Makefile') del cual se desea"
   echo "            verificar su reproducibilidad"
-  echo "  REVISIÓN: (opcional si el objetivo no es _phony_) Marcador, etiqueta, rama o"
-  echo "            nodeid de una revisión del repositorio de mercurial. Valor por"
-  echo "            defecto: develop"
+  echo "  REVISIÓN: (opcional si el objetivo no es _phony_) Rama o etiqueta del"
+  echo "            repositorio. Valor por defecto: develop"
   echo "  PHONY:    (opcional) Bandera que indica si el objetivo es _phony_ o no. Para"
-  echo "            indicar que el objetivo NO es _phony_ (es decir, si se espera que"
+  echo "            indicar que el objetivo NO es _phony_ (es decir, se espera que"
   echo "            'make' cree un archivo) usa 0 o false; cualquier otro valor"
   echo "            indica que el objetivo SÍ es _phony_. Valor por defecto: 0"
   echo
@@ -27,8 +26,11 @@ function get_help() {
   echo "                 argumentos también despliega este mensaje de ayuda"
   echo "  -v, --version  Muestra la versión de $NOMBRE"
   echo
-  echo "Ejemplo:"
-  echo "  $NOMBRE analisis reports/capacitacion_ciencia_datos_datacamp.pdf"
+  echo "Ejemplos:"
+  echo
+  echo "  $NOMBRE hola mundo"
+  echo
+  echo "  $NOMBRE clima_guadalupe reports/estaciones_meteorologicas.pdf master"
   echo
   echo "Nota:"
   echo "  Para configurar el entorno por primera vez consulta:"
@@ -118,8 +120,7 @@ if [ -f $RUTA_CLON/.git_checkout_succeeded ]; then
   echo
   echo "Construye imagen:"
   echo "-----------------"
-  docker image rm --force $IMAGEN 2>/dev/null
-  docker build --tag $IMAGEN .
+  docker build --no-cache --tag $IMAGEN .
 
   # Corre contenedor
   echo
@@ -129,15 +130,13 @@ if [ -f $RUTA_CLON/.git_checkout_succeeded ]; then
     --env BITBUCKET_PASSWORD=$BITBUCKET_PASSWORD \
     --env BITBUCKET_USERNAME=$BITBUCKET_USERNAME \
     --name $CONTENEDOR \
+    --rm \
     --volume $RUTA_CLON:/workdir \
     $IMAGEN bash -c "\
       umask 000; \
       make $OBJETIVO \
         && echo $(date) > .make_succeeded \
         || rm --force .make_succeeded"
-
-  # Elimina contenedor
-  docker rm $CONTENEDOR
 
 fi
 
