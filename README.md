@@ -6,33 +6,63 @@ Aquí describo cómo instalar `misctools` y cómo configurar `geci-testmake` en 
 
 ## Prerequisitos
 
-En Linux Mint, primero deberás instalar Git; en Ubuntu, Git ya viene instalado.
+### cURL
+
+Verifica que tienes cURL instalado:
+
+```shell
+curl --version
+```
+
+Si no tienes cURL instálalo con:
+
+```shell
+sudo apt install curl
+```
+
+### Git
 
 Verifica si tienes Git instalado:
 
-```bash
+```shell
 git --version
 ```
 
 Si no tienes Git instálalo con:
 
-```bash
+```shell
 sudo apt install git
+```
+
+### Make
+
+Verifica si tienes Make instalado:
+
+```shell
+make --version
+```
+
+Si no tienes Make instálalo con:
+
+```shell
+sudo apt install make
 ```
 
 ## Instalación de misctools
 
-```bash
+```shell
 git clone https://github.com/IslasGECI/misctools.git
 cd misctools
 sudo make install
+cd ..
+sudo rm --recursive misctools
 ```
 
 ## Configuración de `geci-testmake`
 
 Exporta tus credenciales de Bitbucket como variables de entorno:
 
-```bash
+```shell
 export BITBUCKET_USERNAME=<USUARIO>
 export BITBUCKET_PASSWORD=<CONTRASEÑA>
 ```
@@ -43,19 +73,19 @@ export BITBUCKET_PASSWORD=<CONTRASEÑA>
 
 Si no has instalado Docker instálalo con:
 
-```bash
+```shell
 sudo apt install docker.io
 ```
 
 Verifica que tienes Docker instalado:
 
-```bash
+```shell
 docker --version
 ```
 
 Para correr Docker sin `sudo` (y evitar el mensaje: _Got permission denied..._) agrega tu usuario al grupo `docker`:
 
-```bash
+```shell
 sudo usermod -aG docker $USER
 ```
 
@@ -63,24 +93,21 @@ En Ubuntu haz _log out_ y luego _log in_ para que el sistema re-evalue tu perten
 
 Verifica que puedes correr Docker sin `sudo`:
 
-```bash
+```shell
 docker run hello-world
 ```
 
-Verifica que tienes cURL instalado:
+Un _bug_ en la instalación de este repo actualmente nos obliga a crear manualmente el directorio de trabajo para `geci-testmake`:
 
-```bash
-curl --version
+```shell
+sudo mkdir /.testmake
+sudo chown $USER:$USER /.testmake
 ```
 
-Si no tienes cURL instálalo con:
-
-```bash
-sudo apt install curl
-```
+(El paso anterior no debería ser necesario cuando se corrija el `make install` de este repo.)
 
 Finalmente, corre `geci-testmake`:
 
-```bash
+```shell
 geci-testmake hola mundo
 ```
