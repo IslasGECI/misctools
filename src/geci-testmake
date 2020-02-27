@@ -67,12 +67,12 @@ REVISION=${3:-develop}
 PHONY=${4:-0}
 
 # Construye el resto de las variable que se usarán en el script
-DIR0=$PWD # Directorio actual del usuario
+DIR0=${PWD} # Directorio actual del usuario
 CONTENEDOR=testmake_${REPO}_${REVISION//\//_}
 CONTENEDOR=${CONTENEDOR,,}
-IMAGEN=$CONTENEDOR
-RUTA_CLON=/.testmake/$REPO # Directorio de trabajo
-TESTMAKE_LOG=/.testmake/testmake.log.csv
+IMAGEN=${CONTENEDOR}
+RUTA_CLON=${HOME}/.testmake/${REPO} # Directorio de trabajo
+TESTMAKE_LOG=${HOME}/.testmake/testmake.log.csv
 
 # Despliega argumentos recibidos para verificar que los valores sean correctos
 echo
