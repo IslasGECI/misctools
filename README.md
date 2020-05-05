@@ -48,6 +48,50 @@ Si no tienes Make instálalo con:
 sudo apt install make
 ```
 
+### Docker
+
+Verifica si tienes Docker instalado:
+
+```shell
+docker --version
+```
+
+Si no tienes Docker instálalo con:
+
+```shell
+sudo apt install docker.io
+```
+
+Para correr Docker sin `sudo` (y evitar el mensaje: _Got permission denied..._) agrega tu usuario al grupo `docker`:
+
+```shell
+sudo usermod -aG docker $USER
+```
+
+Reinicia tu máquina para que el sistema re-evalue tu pertenencia al grupo.
+
+Verifica que puedes correr Docker sin `sudo`:
+
+```shell
+docker run hello-world
+```
+### Credenciales de Bitbucket
+
+Al final de tu archivo `~/.profile`, agrega las dos líneas siguientes:
+
+```shell
+export BITBUCKET_USERNAME=<USUARIO>
+export BITBUCKET_PASSWORD=<CONTRASEÑA>
+```
+
+(Sustituye `<USUARIO>` y `<CONTRASEÑA>` con las credenciales correspondientes)
+
+Ejecuta `~/.profile` para cargar tus credenciales de Bitbucket como variables de entorno.
+
+```shell
+. ~/.profile
+```
+
 ## Instalación de misctools
 
 ```shell
@@ -58,47 +102,12 @@ cd ..
 sudo rm --recursive misctools
 ```
 
-## Configuración de `geci-testmake`
-
-Exporta tus credenciales de Bitbucket como variables de entorno:
-
-```shell
-export BITBUCKET_USERNAME=<USUARIO>
-export BITBUCKET_PASSWORD=<CONTRASEÑA>
-```
-
-(Sustituye `<USUARIO>` y `<CONTRASEÑA>` con las credenciales correspondientes)
-
-> Incluye los dos comandos anteriores (`export`) en tu `~/.profile` para que esta configuración sea permanente.
-
-Si no has instalado Docker instálalo con:
-
-```shell
-sudo apt install docker.io
-```
-
-Verifica que tienes Docker instalado:
-
-```shell
-docker --version
-```
-
-Para correr Docker sin `sudo` (y evitar el mensaje: _Got permission denied..._) agrega tu usuario al grupo `docker`:
-
-```shell
-sudo usermod -aG docker $USER
-```
-
-En Ubuntu haz _log out_ y luego _log in_ para que el sistema re-evalue tu pertenencia al grupo. En Linux Mint deberás reiniciar la máquina ya que hacer _log out_ y _log in_ no es suficiente.
-
-Verifica que puedes correr Docker sin `sudo`:
-
-```shell
-docker run hello-world
-```
+### Verifica la instalación
 
 Finalmente, corre `geci-testmake`:
 
 ```shell
 geci-testmake hola mundo
 ```
+
+Un mensaje te confirmará que has instalado `geci-testmake` exitosamente.
