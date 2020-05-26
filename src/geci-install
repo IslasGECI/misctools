@@ -10,7 +10,6 @@ REVISION=${2:-develop}
 URL=https://github.com/IslasGECI/${REPO}.git
 DIR0=${PWD}
 
-
 mkdir --parent ~/tmp         # Crea una carpeta temporal
 cd ~/tmp                     # Entra a la carpeta temporal
 git clone ${URL}             # Clona el repo
