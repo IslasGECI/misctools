@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #
+# Transforma tabular data packages a Excel
+
 # Esperamos que la primer tabla ('resources[0]') sea la única tabla de datos (de lo contario no lo exportaríamos a excel)
 nombre_tabla_datos=$(< datapackage.json jq '.resources[0].path' | cut --delimiter=\" --fields=2)
 # Los metadatos de columna de la tabla 'resources[0]' se encuentran en: 'resources[0].schema.fields'
