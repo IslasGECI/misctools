@@ -131,6 +131,7 @@ if [ -f $RUTA_CLON/.git_checkout_succeeded ]; then
     --env BITBUCKET_USERNAME=$BITBUCKET_USERNAME \
     --name $CONTENEDOR \
     --rm \
+    --volume /var/run/docker.sock:/var/run/docker.sock \
     --volume $RUTA_CLON:/workdir \
     $IMAGEN bash -c "\
       umask 000; \
