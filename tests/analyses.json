@@ -1,0 +1,282 @@
+[
+    {
+      "name": "Densidad de madrigueras de aves marinas en Isla Guadalupe, Morro Prieto y Zapato",
+      "docker_parent_image": "islasgeci/jupyter:dcc0",
+      "description": "Mapas de densidad de las madrigueras de aves marinas en Isla Guadalupe, Morro Prieto y Zapato",
+      "report": "densidad_madrigueras.pdf",
+      "results": [
+        "mapa_densidad_madrigueras_mergulo_2018.png",
+        "mapa_densidad_madrigueras_mergulo_2019.png",
+        "mapa_densidad_madrigueras_mergulo_punta_sur_2018.png",
+        "mapa_densidad_madrigueras_mergulo_punta_sur_2019.png",
+        "mapa_densidad_madrigueras_mergulo_punta_sur_todos_anios.png",
+        "mapa_densidad_madrigueras_mergulo_todos_anios.png",
+        "mapa_densidad_madrigueras_mergulo_zapato_2018.png",
+        "mapa_densidad_madrigueras_mergulo_zapato_2019.png",
+        "mapa_densidad_madrigueras_mergulo_zapato_todos_anios.png",
+        "png_mapa_densidad_madrigueras_alcuela_morro_2019.png",
+        "png_mapa_densidad_madrigueras_pardela_morro_2019.png",
+        "png_mapa_densidad_madrigueras_pardela_zapato_2019.png",
+        "png_mapa_densidad_madrigueras_petrel_morro_2019.png",
+        "png_mapa_densidad_madrigueras_petrel_zapato_2019.png"
+      ],
+      "scripts": [
+        "src/plot_density_map_morro_prieto.py",
+        "src/plot_density_map_punta_sur.py",
+        "src/plot_density_map_without_quadrants.py",
+        "src/plot_density_map_zapato.py"
+      ],
+      "data": [
+        {
+          "source": "tabular_data_packages",
+          "version": "34445272c9794ef357f69bf02206227a85c855ea",
+          "path": "madrigueras_cuadrantes_aves_marinas",
+          "type": "csv",
+          "filename": "madrigueras_cuadrantes_avesmarinas_todasislas_2015-2019.csv"
+        },
+        {
+          "source": "tabular_data_packages",
+          "version": "03ae8317479ea4109a5d9df681882e622ebcba7a",
+          "path": "nidos_busqueda_aves_marinas",
+          "type": "csv",
+          "filename": "nidos_busqueda_aves_marinas.csv"
+        },
+        {
+          "source": "archivos_binarios",
+          "version": "dd46606922892a845f100d0462d161878b0c24f8",
+          "path": "shp/guadalupe",
+          "type": "shapefile",
+          "filename": "linea_costa_isla_guadalupe.shp"
+        },
+        {
+          "source": "archivos_binarios",
+          "version": "dd46606922892a845f100d0462d161878b0c24f8",
+          "path": "shp/guadalupe",
+          "type": "shapefile",
+          "filename": "linea_costa_isla_guadalupe.shx"
+        },
+        {
+          "source": "datos_texto",
+          "version": "d413a8ef3f083df84ef685cd3053a6c5d797f541",
+          "path": "kml/zapato",
+          "type": "kml",
+          "filename": "area_colonia_mergulo_zapato.kml"
+        },
+        {
+          "source": "archivos_binarios",
+          "version": "949b588b1b9adddf2dd4431653be707e476eee34",
+          "path": "img/rosa_vientos",
+          "type": "png",
+          "filename": "rosewind.png"
+        }
+      ],
+      "requirements": []
+    },
+    {
+      "name": "Series de tiempo del tamaño poblacional de aves marinas en Isla Guadalupe",
+      "description": "Se reportan los resultados de la estimación poblacional de aves marinas en Isla Guadalupe",
+      "docker_parent_image": "islasgeci/jupyter:dcc0",
+      "report": "tamano_poblacional.pdf",
+      "results": [
+        "area_colonia_mergulo_zapato.kml",
+        "area_morro_prieto_kernel_mergulo_2019.json",
+        "area_morro_prieto_kernel_pardela_2019.json",
+        "area_morro_prieto_kernel_petrel_2019.json",
+        "area_zapato_kernel_mergulo_2019.json",
+        "densidad_madrigueras_mergulo_morro.csv",
+        "densidad_madrigueras_mergulo_zapato.csv",
+        "densidad_madrigueras_pardela_morro.csv",
+        "densidad_madrigueras_petrel_morro.csv",
+        "estimacion_poblacional_mergulo_morro.csv",
+        "estimacion_poblacional_mergulo_zapato.csv",
+        "estimacion_poblacional_pardela_morro.csv",
+        "estimacion_poblacional_petrel_morro.csv",
+        "intervalo_densidad_mergulo_morro.csv",
+        "intervalo_densidad_mergulo_zapato.csv",
+        "intervalo_densidad_pardela_morro.csv",
+        "intervalo_densidad_petrel_morro.csv",
+        "intervalo_error_morro_prieto.json",
+        "intervalo_error_zapato.json",
+        "madrigueras_cuadrantes_aves_marinas",
+        "madrigueras_cuadrantes_mergulo_morro.csv",
+        "madrigueras_cuadrantes_mergulo_zapato.csv",
+        "madrigueras_cuadrantes_pardela_morro.csv",
+        "madrigueras_cuadrantes_petrel_morro.csv",
+        "serie_tiempo_mergulo_morro.png",
+        "serie_tiempo_mergulo_todos_islotes.png",
+        "serie_tiempo_mergulo_zapato.png",
+        "serie_tiempo_pardela_morro.png",
+        "serie_tiempo_petrel_morro.png",
+        "total_nidos_temporada_mergulo_morro_prieto.csv",
+        "total_nidos_temporada_mergulo_punta_sur.csv",
+        "total_nidos_temporada_mergulo_zapato.csv",
+        "total_nidos_temporada_pardela_morro_prieto.csv",
+        "total_nidos_temporada_petrel_morro_prieto.csv",
+        "zona_anidacion_morro_mergulo.png",
+        "zona_anidacion_morro_pardela.png",
+        "zona_anidacion_morro_petrel.png",
+        "zona_anidacion_zapato_mergulo.png"
+      ],
+      "scripts": [
+        "src/calculate_bootstrapped_density",
+        "src/calculate_intervals_density_by_season",
+        "src/plot_time_series_all_islets",
+        "src/plot_time_series",
+        "src/query_island_species_site_area",
+        "src/query_total_burrows_per_season",
+        "src/query_total_nidos_cuadrantes"
+      ],
+      "data": [
+        {
+          "source": "tabular_data_packages",
+          "version": "03ae8317479ea4109a5d9df681882e622ebcba7a",
+          "path": "nidos_busqueda_aves_marinas",
+          "type": "csv",
+          "filename": "nidos_busqueda_aves_marinas.csv"
+        },
+        {
+          "source": "tabular_data_packages",
+          "version": "09f67bf73c31c08826f5f70f557bdcecce41c8b9",
+          "path": "parejas_aves_marinas_islas_del_pacifico",
+          "type": "csv",
+          "filename": "parejas_aves_marinas_islas_del_pacifico.csv"
+        },
+        {
+          "source": "tabular_data_packages",
+          "version": "34445272c9794ef357f69bf02206227a85c855ea",
+          "path": "madrigueras_cuadrantes_aves_marinas",
+          "type": "csv",
+          "filename": "madrigueras_cuadrantes_avesmarinas_todasislas_2015-2019.csv"
+        }
+      ],
+      "requirements": []
+    },
+    {
+      "name": "Mapa de burbujas con datos de transectos nocturnos en Isla Guadalupe",
+      "description": "Grafica mapas de burbujas de avistamientos de Mérgulo",
+      "docker_parent_image": "islasgeci/jupyter:dcc0",
+      "report": "transectos_nocturnos.pdf",
+      "results": [
+        "murrelet_nocturne_transect_bubble_plot_2014.png",
+        "murrelet_nocturne_transect_bubble_plot_2015.png",
+        "murrelet_nocturne_transect_bubble_plot_2017.png",
+        "murrelet_nocturne_transect_bubble_plot_2018.png",
+        "murrelet_nocturne_transect_bubble_plot_2019.png"
+      ],
+      "scripts": [
+        "src/calculate_transects_birds_density",
+        "src/geci_plots.py",
+        "src/plot_bubbles_transects_sea_birds"
+      ],
+      "data": [
+        {
+          "source": "tabular_data_packages",
+          "version": "2bfb6eb7636c707977cdddf779253d91548ae754",
+          "path": "transectosNocturnos_avesMarinas_todasIslas",
+          "type": "csv",
+          "filename": "TransectosNocturnos_AvesMarinas_TodasIslas_2015_2019.csv"
+        },
+        {
+          "source": "tabular_data_packages",
+          "version": "cdb2617a3b8d202c44b341027b91bd89dc689470",
+          "path": "tracks_transectos_marinos_guadalupe",
+          "type": "csv",
+          "filename": "tracks_transectos_marinos_guadalupe.csv"
+        },
+        {
+          "source": "archivos_binarios",
+          "version": "949b588b1b9adddf2dd4431653be707e476eee34",
+          "path": "img/rosa_vientos",
+          "type": "png",
+          "filename": "rosewind.png"
+        }
+      ],
+      "requirements": []
+    },
+    {
+      "name": "Mapa de densidades de pardela mexicana en Natividad",
+      "description": "Calculando características para dos transectos con diferencias.",
+      "docker_parent_image": "islasgeci/jupyter:dcc0",
+      "report": "densidad_pardela_natividad.pdf",
+      "results": [
+        "black_vented_shearwater_nesting_zone_natividad.json",
+        "densidad_madrigueras_pardela_natividad.csv",
+        "estimacion_poblacional_pardela_natividad.csv",
+        "intervalo_densidad_pardela_natividad.csv",
+        "madrigueras_cuadrantes_pardela_natividad.csv",
+        "serie_tiempo_pardela_natividad.png"
+      ],
+      "scripts": [
+        "src/calculate_area_from_shapefile",
+        "src/calculate_burrows_density_natividad",
+        "src/calculate_burrows_quantity"
+      ],
+      "data": [
+        {
+          "source": "archivos_binarios",
+          "version": "f87f99065c6b123cd4e069abc274f4eaf0dfac79",
+          "path": "shp/natividad",
+          "type": "shapefile",
+          "filename": "natividad_LCosta.shp"
+        },
+        {
+          "source": "tabular_data_packages",
+          "version": "34445272c9794ef357f69bf02206227a85c855ea",
+          "path": "madrigueras_cuadrantes_aves_marinas",
+          "type": "csv",
+          "filename": "madrigueras_cuadrantes_avesmarinas_todasislas_2015-2019.csv"
+        },
+        {
+          "source": "archivos_binarios",
+          "version": "f87f99065c6b123cd4e069abc274f4eaf0dfac79",
+          "path": "shp/natividad",
+          "type": "shapefile",
+          "filename": "natividad_LCosta.shx"
+        },
+        {
+          "source": "archivos_binarios",
+          "version": "605d5c23ba720cdfa3b9d8b8f5db15315e46d46e",
+          "path": "shp/natividad",
+          "type": "shapefile",
+          "filename": "pardela_natividad_poligono_anidacion_2018.shp"
+        },
+        {
+          "source": "archivos_binarios",
+          "version": "605d5c23ba720cdfa3b9d8b8f5db15315e46d46e",
+          "path": "shp/natividad",
+          "type": "shapefile",
+          "filename": "pardela_natividad_poligono_anidacion_2018.shx"
+        }
+      ],
+      "requirements": []
+    },
+    {
+      "name": "Sistemas de atraccion social en Isla Guadalupe",
+      "description": "Ubicación de grabadoras y madrigueras artificiales en Isla Guadalupe",
+      "docker_parent_image": "islasgeci/jupyter:dcc0",
+      "report": "sistemas_de_atraccion_guadalupe.pdf",
+      "results": [
+        "mapa_densidad_sistemas_atraccion_punta_sur_2019.png"
+      ],
+      "scripts": [
+        "src/plot_attraction_systems_punta_sur.py"
+      ],
+      "data": [
+        {
+          "source": "tabular_data_packages",
+          "version": "8d266c27ed28096b2f2f4d609f6113ace42a1456",
+          "path": "sistemas_atraccion_social_isla_guadalupe",
+          "type": "csv",
+          "filename": "sistemas_atraccion_social_isla_guadalupe.csv"
+        },
+        {
+          "source": "archivos_binarios",
+          "version": "949b588b1b9adddf2dd4431653be707e476eee34",
+          "path": "img/rosa_vientos",
+          "type": "png",
+          "filename": "rosewind.png"
+        }
+      ],
+      "requirements": []
+    }
+  ]
