@@ -1,0 +1,163 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc} 
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+\usepackage{graphicx}
+\usepackage{csvsimple}
+\usepackage{authblk}
+\usepackage{cprotect}
+\usepackage{floatrow}
+\usepackage[caption=false]{subfig}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{lscape}
+\usepackage{gensymb}
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{siunitx}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{pythontex}
+
+
+\author{Fernando Alvarez, Maritza Bello y Braulio Rojas}
+
+\title{Densidad de madrigueras de aves marinas en Isla Guadalupe, Morro Prieto y Zapato.}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Calculamos la densidad superficial de madrigueras activas por temporada para mérgulo de Xantus, pardela mexicana, petrel de Townsend y alcuela en Isla Guadalupe. Utilizamos los datos de muestreos por cuadrantes y búsquedas exhaustivas dependiendo de la especie y temporada.
+\end{abstract}
+
+
+\section*{Metodología}
+\subsection*{Estimación de la densidad con kernel gaussiano}
+
+Aplicamos esta metodología para los datos de \href{https://drive.google.com/drive/folders/16HeQaiut3p1ONAw3YfAtu3V9A8JXH5ou}{{\color{blue}\textit{\underline{busquedas exhaustivas}}}}, los cuales son escencialmente puntos georeferenciados por madriguera activa. Al combinar toda la información de una temporada, tenemos como resultado una distribución superficial de madrigueras activas.
+
+Para calcular la densidad a partir de esta distribución utilizamos el método de estimación de densidad con kernel gaussiano, en el que cada punto georeferenciado aporta una componente gaussiana a la densidad total. El resultado es una estimación de la densidad derivada completamente de los datos y funciona como un modelo no paramétrico de la distribución de madrigueras. Para conocer más al respecto véase el siguiente \href{https://scikit-learn.org/stable/modules/density.html#kernel-density}{{\color{blue}\textit{\underline{link}}}}.
+
+\subsection*{Interpolación de la densidad}
+
+Aplicamos esta metodología a los datos de \href{https://drive.google.com/drive/folders/1mG_Zvp9S36Bb45viOVwPmoJ-C4OrOpkr}{{\color{blue}\textit{\underline{muestreos por cuadrantes}}}}, los cuales nos brindan un valor georeferenciado de densidad de madrigueras activas. Para estimar la densidad de madrigueras fuera de los cuadrantes, utilizamos una función de interpolación en dos dimensiones. 
+
+Construimos a interpolación triangulando los datos de entrada y construyendo un polinomio cúbico por cada triangulación, en donde garantizamos que la densidad resultante entre los puntos es continua. 
+
+\section*{Mapas de densidad para mérgulo de Xantus}
+
+En esta sección mostramos los mapas de densidad de madrigueras activas de mérgulo de Xantus (\textit{Synthliboramphus hypoleucus}) separados por temporada, los cuales obtuvimos siguiendo la metodología descrita en la sección anterior.
+
+\subsection*{Temporada: 2018}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{figures/mapa_densidad_madrigueras_mergulo_2018.png}
+    \caption{Densidad de mérgulo de Xantus en el islote Morro Prieto, utilizando los datos de muestreos por cuadrantes del 2018. La barra de color representa el nivel de densidad de madrigueras activas. El recuadro rojo en el mapa de localización representa la ubicación del islote.}
+    \label{fig:mapaDensidadMorro2018}
+\end{figure}
+
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{figures/mapa_densidad_madrigueras_mergulo_zapato_2018.png}
+    \caption{Densidad de mérgulo de Xantus en el islote Zapato, utilizando los datos de muestreos por cuadrantes del 2018. La barra de color representa el nivel de densidad de madrigueras activas. El recuadro rojo en el mapa de localización representa la ubicación del islote.}
+    \label{fig:mapaDensidadZapato2018}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{figures/mapa_densidad_madrigueras_mergulo_punta_sur_2018.png}
+    \caption{Densidad de mérgulo de Xantus en Isla Guadalupe (Punta Sur), utilizando los datos de búsquedas exhaustivas del 2018. La barra de color representa el nivel de densidad de madrigueras activas. El recuadro rojo en el mapa de localización representa la región gráficada.}
+    \label{fig:mapaDensidadSur2018}
+\end{figure}
+
+\subsection*{Temporada: 2019}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{figures/mapa_densidad_madrigueras_mergulo_2019.png}
+    \caption{Densidad de mérgulo de Xantus en el islote Morro Prieto, utilizando los datos de muestreos por cuadrantes del 2019. La barra de color representa el nivel de densidad de madrigueras activas. El recuadro rojo en el mapa de localización representa la ubicación del islote.}
+    \label{fig:mapaDensidadMorro2019}
+\end{figure}
+
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{figures/mapa_densidad_madrigueras_mergulo_zapato_2019.png}
+    \caption{Densidad de mérgulo de Xantus en el islote Zapato, utilizando los datos de muestreos por cuadrantes del 2019. La barra de color representa el nivel de densidad de madrigueras activas. El recuadro rojo en el mapa de localización representa la ubicación del islote.}
+    \label{fig:mapaDensidadZapato2019}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{figures/mapa_densidad_madrigueras_mergulo_punta_sur_2019.png}
+    \caption{Densidad de mérgulo de Xantus en Isla Guadalupe (Punta Sur), utilizando los datos de búsquedas exhaustivas del 2019. La barra de color representa el nivel de densidad de madrigueras activas. El recuadro rojo en el mapa de localización representa la región gráficada.}
+    \label{fig:mapaDensidadSur2019}
+\end{figure}
+
+\subsection*{Todas las temporadas}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{figures/mapa_densidad_madrigueras_mergulo_todos_anios.png}
+    \caption{Densidad de mérgulo de Xantus en el islote Morro Prieto, utilizando los datos de muestreos por cuadrantes del 2018 y 2019. La barra de color representa el nivel de densidad de madrigueras activas. El recuadro rojo en el mapa de localización representa la ubicación del islote.}
+    \label{fig:mapaDensidadMorroTodos}
+\end{figure}
+
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{figures/mapa_densidad_madrigueras_mergulo_zapato_todos_anios.png}
+    \caption{Densidad de mérgulo de Xantus en el islote Zapato, utilizando los datos de muestreos por cuadrantes del 2018 y 2019. La barra de color representa el nivel de densidad de madrigueras activas. El recuadro rojo en el mapa de localización representa la ubicación del islote.}
+    \label{fig:mapaDensidadZapatoTodos}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{figures/mapa_densidad_madrigueras_mergulo_punta_sur_todos_anios.png}
+    \caption{Densidad de mérgulo de Xantus en Isla Guadalupe (Punta Sur), utilizando los datos de búsquedas exhaustivas del 2017, 2018 y 2019. La barra de color representa el nivel de densidad de madrigueras activas. El recuadro rojo en el mapa de localización representa la región gráficada.}
+    \label{fig:mapaDensidadSurTodos}
+\end{figure}
+
+
+\section*{Mapas de densidad para pardela mexicana}
+
+En esta sección mostramos los mapas de densidad de madrigueras activas de pardela mexicana (\textit{Puffinus opisthomelas}) separados por temporada, los cuales obtuvimos siguiendo la metodología descrita anteriormente.
+
+\subsection*{Temporada: 2019}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{figures/png_mapa_densidad_madrigueras_pardela_morro_2019.png}
+    \caption{Densidad de pardela mexicana en Morro Prieto, utilizando los datos de muestreos por cuadrantes del 2019. La barra de color representa el nivel de densidad de madrigueras activas. El recuadro rojo en el mapa de localización representa la ubicación del islote.}
+    \label{fig:mapaDensidadPardelaMorro2019}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{figures/png_mapa_densidad_madrigueras_pardela_zapato_2019.png}
+    \caption{Densidad de pardela mexicana en Zapato, utilizando los datos de busquedas exhaustivas del 2019. La barra de color representa el nivel de densidad de madrigueras activas. El recuadro rojo en el mapa de localización representa la ubicación del islote.}
+    \label{fig:mapaDensidadPardelaZapato2019}
+\end{figure}
+
+\section*{Mapas de densidad para petrel de Townsend}
+
+En esta sección mostramos los mapas de densidad de madrigueras activas de petrel de Townsend (\textit{Hydrobates socorroensis}) separados por temporada, los cuales obtuvimos siguiendo la metodología descrita anteriormente.
+
+\subsection*{Temporada: 2019}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{figures/png_mapa_densidad_madrigueras_petrel_morro_2019.png}
+    \caption{Densidad de petrel de Townsend en Morro Prieto, utilizando los datos de muestreos por cuadrantes del 2019. La barra de color representa el nivel de densidad de madrigueras activas. El recuadro rojo en el mapa de localización representa la ubicación del islote.}
+    \label{fig:mapaDensidadPetrelMorro2019}
+\end{figure}
+
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{figures/png_mapa_densidad_madrigueras_petrel_zapato_2019.png}
+    \caption{Densidad de petrel de Townsend en Zapato, utilizando los datos de busquedas exhaustivas del 2019. La barra de color representa el nivel de densidad de madrigueras activas. El recuadro rojo en el mapa de localización representa la ubicación del islote.}
+    \label{fig:mapaDensidadPetrelZapato2019}
+\end{figure}
+
+\section*{Mapas de densidad para alcuela oscura}
+
+En esta sección mostramos el Densidad de madrigueras activas de alcuela oscura (\textit{Ptychoramphus aleuticus}) separados por temporada en Morro Prieto, el cual obtuvimos siguiendo la metodología descrita anteriormente.
+
+\subsection*{Temporada: 2019}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{figures/png_mapa_densidad_madrigueras_alcuela_morro_2019.png}
+    \caption{Densidad de alcuela en Morro Prieto, utilizando los datos de búsquedas exhaustivas del 2019. La barra de color representa el nivel de densidad de madrigueras activas. El recuadro rojo en el mapa de localización representa la ubicación del islote.}
+    \label{fig:mapaDensidadAlcuelaMorro2019}
+\end{figure}
+
+\end{document}
