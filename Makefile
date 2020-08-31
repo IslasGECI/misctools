@@ -2,6 +2,7 @@ tests: install
 	. ./tests/test_geci-install
 	. ./tests/test_make-install
 	cd tests && . ./test_geci-tdp2xls
+	bats tests/test_png_is_analyses.sh
 
 # Enlista phonies
 .PHONY: install tests
