@@ -8,7 +8,7 @@
     "required": [
       "name",
       "description",
-      "docker_image",
+      "image_tag",
       "report",
       "results",
       "scripts",
@@ -22,9 +22,9 @@
       "description": {
         "type": "string"
       },
-      "docker_image": {
+      "image_tag": {
         "type": "string",
-        "pattern": "^islasgeci/"
+        "pattern": "^[a-zA-Z0-9]{4}$"
       },
       "docker_parent_image": {
         "type": "string",
