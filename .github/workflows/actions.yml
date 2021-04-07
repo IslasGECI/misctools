@@ -3,11 +3,11 @@ on: [push, pull_request]
 
 jobs:
   actions:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
     - name: Copia repositorio
       uses: actions/checkout@v2
     - name: Construye imagen
       run: docker build --tag islasgeci .
-    - name: Ejecuta objetivo principal del Makefile
-      run: docker run --volume ${PWD}:/workdir islasgeci make
+    - name: Ejecuta pruebas
+      run: docker run --volume ${PWD}:/workdir islasgeci make tests
