@@ -9,10 +9,10 @@ tests: install
 # Instala estas herramientas miscelaneas
 install:
 	# Copia ejecutables
+	chmod +x ./src/*
 	mkdir --parents /usr/local/bin
-	cp ./src/* /usr/local/bin
-	chmod +x /usr/local/bin/geci-*
-	export PATH="$${PATH}:/usr/local/bin"
+	cp --preserve ./src/* /usr/local/bin
+	export PATH="/usr/local/bin:$${PATH}"
 	# Instala esquemas de JSONs
 	mkdir --parents /usr/local/bin $${HOME}/.schemas
 	cp schemas/*.json $${HOME}/.schemas/
