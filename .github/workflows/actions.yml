@@ -1,4 +1,4 @@
-name: Conservación de Islas
+name: Tests
 on: [push, pull_request]
 
 jobs:
@@ -8,6 +8,6 @@ jobs:
     - name: Copia repositorio
       uses: actions/checkout@v2
     - name: Construye imagen
-      run: docker build --tag islasgeci .
+      run: docker build --tag islasgeci/misctools .
     - name: Ejecuta pruebas
-      run: docker run --volume ${PWD}:/workdir islasgeci make tests
+      run: docker run islasgeci/misctools make tests
