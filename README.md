@@ -2,7 +2,8 @@
 
 Conjunto de herramientas pequeñas y prototipos del equipo de Ciencia de Datos - GECI.
 
-Aquí describo cómo instalar `misctools` y cómo configurar `geci-testmake` en Linux Mint 19.2 (Tina) y en Ubuntu 18.04 (Bionic Beaver).
+Aquí describo cómo instalar `misctools` y cómo configurar `geci-testmake` en Ubuntu 20.04 (Focal
+Fossa).
 
 ## Prerequisitos
 
@@ -62,7 +63,8 @@ Si no tienes Docker instálalo con:
 sudo apt install docker.io
 ```
 
-Para correr Docker sin `sudo` (y evitar el mensaje: _Got permission denied..._) agrega tu usuario al grupo `docker`:
+Para correr Docker sin `sudo` (y evitar el mensaje: _Got permission denied..._) agrega tu usuario al
+grupo `docker`:
 
 ```shell
 sudo usermod -aG docker $USER
@@ -92,7 +94,7 @@ Ejecuta `~/.profile` para cargar tus credenciales de Bitbucket como variables de
 . ~/.profile
 ```
 
-## Instalación de misctools
+## Instalación de geci-testmake
 
 ```shell
 git clone https://github.com/IslasGECI/misctools.git
