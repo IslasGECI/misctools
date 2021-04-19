@@ -46,8 +46,8 @@
         "requirements": []
     },
     {
-        "image_tag": "17f9",
         "name": "Densidad de madrigueras de mérgulo a partir de busquedas exhaustivas",
+        "image_tag": "17f9",
         "description": "Mapas de densidad de madrigueras de mérgulo en Isla Guadalupe durante las temporadas 2014-2018.",
         "report": "mapa_densidad_censo.pdf",
         "results": [
