@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install --yes --no-install-recommends apt-utils
 RUN apt-get update && apt-get install --yes --no-install-recommends \
       ca-certificates \
       csvkit \
+      curl \
       git \
       gnumeric \
       jq \
@@ -26,5 +27,9 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
 # Instala módulos con pip
 RUN pip3 install \
       jsonschema
+
+# Instala ShellSpec
+RUN curl -fsSL https://git.io/shellspec | sh -s -- --yes
+ENV PATH="/root/.local/lib/shellspec:$PATH"
 
 CMD [ "make" ]
