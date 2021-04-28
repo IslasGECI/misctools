@@ -1,66 +1,16 @@
-# Herramientas Misceláneas
+# Herramientas Misceláneas (MiscTools)
 
-Conjunto de herramientas pequeñas y prototipos del equipo de Ciencia de Datos - GECI.
+Conjunto de herramientas pequeñas y prototipos del equipo de Ciencia de Datos de GECI.
 
-Aquí describo cómo instalar `misctools` y cómo configurar `geci-testmake` en Ubuntu 20.04 (Focal
+Aquí describo cómo instalar MiscTools y cómo configurar `geci-testmake` en Ubuntu 20.04 (Focal
 Fossa).
 
 ## Prerequisitos
 
-### cURL
-
-Verifica que tienes cURL instalado:
+Instal cURL, Git, Make y Docker.
 
 ```shell
-curl --version
-```
-
-Si no tienes cURL instálalo con:
-
-```shell
-sudo apt install curl
-```
-
-### Git
-
-Verifica si tienes Git instalado:
-
-```shell
-git --version
-```
-
-Si no tienes Git instálalo con:
-
-```shell
-sudo apt install git
-```
-
-### Make
-
-Verifica si tienes Make instalado:
-
-```shell
-make --version
-```
-
-Si no tienes Make instálalo con:
-
-```shell
-sudo apt install make
-```
-
-### Docker
-
-Verifica si tienes Docker instalado:
-
-```shell
-docker --version
-```
-
-Si no tienes Docker instálalo con:
-
-```shell
-sudo apt install docker.io
+sudo apt update && sudo apt install curl git make docker.io
 ```
 
 Para correr Docker sin `sudo` (y evitar el mensaje: _Got permission denied..._) agrega tu usuario al
@@ -77,7 +27,8 @@ Verifica que puedes correr Docker sin `sudo`:
 ```shell
 docker run hello-world
 ```
-### Credenciales de Bitbucket
+
+## Credenciales de Bitbucket
 
 Al final de tu archivo `~/.profile`, agrega las dos líneas siguientes:
 
@@ -94,7 +45,7 @@ Ejecuta `~/.profile` para cargar tus credenciales de Bitbucket como variables de
 . ~/.profile
 ```
 
-## Instalación de geci-testmake
+## Instalación de MiscTools
 
 ```shell
 git clone https://github.com/IslasGECI/misctools.git
@@ -104,9 +55,9 @@ cd ..
 sudo rm --recursive misctools
 ```
 
-### Verifica la instalación
+## Verifica la instalación
 
-Finalmente, corre `geci-testmake`:
+Para verificar la instalación ejecutaremos `geci-testmake`:
 
 ```shell
 geci-testmake hola mundo
