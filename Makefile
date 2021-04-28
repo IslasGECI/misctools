@@ -19,8 +19,3 @@ install:
 	# Instala esquemas de JSONs
 	mkdir --parents /usr/local/bin $${HOME}/.schemas
 	cp schemas/*.json $${HOME}/.schemas/
-	# Instala alias y funciones
-	mkdir --parents $${HOME}/.geci
-	cp ./src/.bash_* $${HOME}/.geci/
-	echo ". ~/.geci/.bash_aliases" >> $${HOME}/.bash_aliases
-	echo ". ~/.geci/.bash_functions" >> $${HOME}/.bash_aliases
