@@ -1,5 +1,4 @@
 tests: install
-	. ./tests/test_geci-install
 	. ./tests/test_make-install
 	cd tests && . ./test_geci-tdp2xls
 	shellspec
