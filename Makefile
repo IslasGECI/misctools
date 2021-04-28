@@ -5,7 +5,9 @@ tests: install
 	shellspec
 
 # Enlista phonies
-.PHONY: install tests
+.PHONY: \
+		install \
+		tests
 
 # Instala estas herramientas miscelaneas
 install:
