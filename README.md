@@ -67,10 +67,11 @@ sudo rm --recursive misctools
 
 ## ✅ Verifica la instalación
 
-Para verificar la instalación ejecutaremos `geci-testmake`:
+Para verificar la instalación ejecutaremos una de las herramientas instaladas:
 
 ```shell
 geci-testmake hola mundo
 ```
 
-Un mensaje te confirmará que has instalado `geci-testmake` exitosamente.
+Un mensaje te confirmará que `geci-testmake` se ejecutó exitosamente y por lo tanto MiscTools fue
+instalado correctamente.
