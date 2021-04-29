@@ -1,11 +1,21 @@
-# Herramientas Misceláneas (MiscTools)
+# 🛠️ Herramientas Misceláneas (MiscTools)
 
 Conjunto de herramientas pequeñas y prototipos del equipo de Ciencia de Datos de GECI.
 
-Aquí describo cómo instalar MiscTools y cómo configurar `geci-testmake` en Ubuntu 20.04 (Focal
-Fossa).
+## 🧰 Lista de herramientas
 
-## Prerequisitos
+
+| Herramienta         | Descripción  |
+| ------------------- | ------------ |
+| geci-checkanalyses  | Usa jsonschema para verificar la estructura de analyses.json  |
+| geci-tdp2xls        | Transforma tabular data packages a Excel  |
+| geci-testmake       | Verifica que 'make' puede construir un objetivo dentro de un contenedor de Docker  |
+| geci-validate       | Verifica que un data package cumple con el protocolo de GECI  |
+
+
+## 📋 Prerequisitos
+
+Estas instrucciones son para instalar y configurar MiscTools en Ubuntu 20.04 (Focal Fossa).
 
 Instal cURL, Git, Make y Docker.
 
@@ -20,7 +30,7 @@ grupo `docker`:
 sudo usermod -aG docker $USER
 ```
 
-Reinicia tu máquina para que el sistema re-evalue tu pertenencia al grupo.
+Reinicia tu máquina para que el sistema re-evalue tu pertenencia al grupo `docker`.
 
 Verifica que puedes correr Docker sin `sudo`:
 
@@ -28,7 +38,7 @@ Verifica que puedes correr Docker sin `sudo`:
 docker run hello-world
 ```
 
-## Credenciales de Bitbucket
+## 🛂 Credenciales de Bitbucket
 
 Al final de tu archivo `~/.profile`, agrega las dos líneas siguientes:
 
@@ -45,7 +55,7 @@ Ejecuta `~/.profile` para cargar tus credenciales de Bitbucket como variables de
 . ~/.profile
 ```
 
-## Instalación de MiscTools
+## 🏗️ Instalación de MiscTools
 
 ```shell
 git clone https://github.com/IslasGECI/misctools.git
@@ -55,7 +65,7 @@ cd ..
 sudo rm --recursive misctools
 ```
 
-## Verifica la instalación
+## ✅ Verifica la instalación
 
 Para verificar la instalación ejecutaremos `geci-testmake`:
 
