@@ -13,11 +13,11 @@ Conjunto de herramientas pequeñas y prototipos del equipo de Ciencia de Datos d
 | geci-validate       | Verifica que un data package cumple con el protocolo de GECI  |
 
 
-## 📋 Prerequisitos
+## 📋 Prerequisitos para `geci-testmake`
 
 Estas instrucciones son para instalar y configurar MiscTools en Ubuntu 20.04 (Focal Fossa).
 
-Instal cURL, Git, Make y Docker.
+Instala cURL, Git, Make y Docker.
 
 ```shell
 sudo apt update && sudo apt install curl git make docker.io
@@ -36,6 +36,19 @@ Verifica que puedes correr Docker sin `sudo`:
 
 ```shell
 docker run hello-world
+```
+### 📋 Prerequisitos para `geci-checkanalyses`
+
+Instala `jsonschema`.
+```
+$ pip install jsonschema
+```
+
+### 📋 Prerequisitos para `geci-validate`
+
+Instala `goodtables`.
+```shell
+pip install goodtables
 ```
 
 ## 🛂 Credenciales de Bitbucket
