@@ -45,6 +45,7 @@ $ pip install jsonschema
 ```
 
 ### 📋 Prerequisitos para la herramienta `geci-validate`
+
 Instala `goodtables`.
 ```shell
 pip install goodtables
