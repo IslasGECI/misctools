@@ -25,7 +25,8 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
     apt clean
 
 # Instala módulos con pip
-RUN pip3 install \
+RUN pip install \
+      goodtables \
       jsonschema
 
 # Instala ShellSpec
