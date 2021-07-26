@@ -14,10 +14,10 @@ Conjunto de herramientas pequeñas y prototipos del equipo de Ciencia de Datos d
 
 Estas instrucciones son para instalar y configurar **misctools** en Ubuntu 20.04 (Focal Fossa).
 
-Instala Docker.
+Instala Docker y Make.
 
 ```shell
-sudo apt update && sudo apt install --yes docker.io
+sudo apt update && sudo apt install --yes docker.io make
 ```
 
 Para correr Docker sin `sudo` (y evitar el mensaje: _Got permission denied..._) agrega tu usuario al
