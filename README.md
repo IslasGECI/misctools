@@ -15,10 +15,10 @@ GECI.
 
 Estas instrucciones son para instalar y configurar **MiscTools** en Ubuntu 20.04 (Focal Fossa).
 
-Instala Docker y Make.
+Instala Docker, Git y Make.
 
 ```shell
-sudo apt update && sudo apt install --yes docker.io make
+sudo apt update && sudo apt install --yes docker.io git make
 ```
 
 Para correr Docker sin `sudo` (y evitar el mensaje: _Got permission denied..._) agrega tu usuario al
