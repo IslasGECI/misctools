@@ -4,58 +4,43 @@ Conjunto de herramientas pequeñas y prototipos del equipo de Ciencia de Datos d
 
 ## 🧰 Lista de herramientas
 
-
 | Herramienta         | Descripción  |
 | ------------------- | ------------ |
 | geci-checkanalyses  | Usa jsonschema para verificar la estructura de analyses.json  |
 | geci-tdp2xls        | Transforma tabular data packages a Excel  |
 | geci-validate       | Verifica que un data package cumple con el protocolo de GECI  |
 
-### 📋 Prerequisitos para `geci-checkanalyses`
+### 📋 Prerequisitos
 
-Instala `jsonschema`.
-```
-$ pip install jsonschema
-```
+Estas instrucciones son para instalar y configurar **misctools** en Ubuntu 20.04 (Focal Fossa).
 
-### 📋 Prerequisitos para `geci-validate`
-
-Instala `goodtables`.
-```shell
-pip install goodtables
-```
-
-### 📋 Prerequisitos para `geci-tdp2xls`
-
-Instala `jq` y `ssconvert`.
-```shell
-$ sudo apt  install jq
-$ sudo apt-get --yes install --no-install-recommends gnumeric
-```
-
-## 🛂 Credenciales de Bitbucket
-
-Al final de tu archivo `~/.profile`, agrega las dos líneas siguientes:
+Instala Docker.
 
 ```shell
-export BITBUCKET_USERNAME=<USUARIO>
-export BITBUCKET_PASSWORD=<CONTRASEÑA>
+sudo apt update && sudo apt install --yes docker.io
 ```
 
-(Sustituye `<USUARIO>` y `<CONTRASEÑA>` con las credenciales correspondientes)
-
-Ejecuta `~/.profile` para cargar tus credenciales de Bitbucket como variables de entorno.
+Para correr Docker sin `sudo` (y evitar el mensaje: _Got permission denied..._) agrega tu usuario al
+grupo `docker`:
 
 ```shell
-. ~/.profile
+sudo usermod -aG docker $USER
 ```
 
-## 🏗️ Instalación de MiscTools
+Reinicia tu máquina para que el sistema re-evalue tu pertenencia al grupo `docker`.
+
+Verifica que puedes correr Docker sin `sudo`:
+
+```shell
+docker run hello-world
+```
+
+## 🏗️ Instalación
 
 ```shell
 git clone https://github.com/IslasGECI/misctools.git
 cd misctools
-sudo make install
+make install
 cd ..
 sudo rm --recursive misctools
 ```
