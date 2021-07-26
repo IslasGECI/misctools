@@ -46,3 +46,13 @@ sudo rm --recursive misctools
 ```
 
 ## ✅ Verifica la instalación
+
+Ejecuta:
+```shell
+geci-validate --version
+```
+
+Si tu instalación es correcta obtendrás un resultado similar a:
+```shell
+geci-validate v0.1.0+wxyz
+```
