@@ -51,6 +51,14 @@ Instala `goodtables`.
 pip install goodtables
 ```
 
+### 📋 Prerequisitos para `geci-tdp2xls`
+
+Instala `jq` y `ssconvert`.
+```shell
+$ sudo apt  install jq
+$ sudo apt-get --yes install --no-install-recommends gnumeric
+```
+
 ## 🛂 Credenciales de Bitbucket
 
 Al final de tu archivo `~/.profile`, agrega las dos líneas siguientes:
