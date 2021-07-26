@@ -1,6 +1,7 @@
-# 🛠️ Herramientas Misceláneas (MiscTools)
+# 🛠️ Herramientas Misceláneas
 
-Conjunto de herramientas pequeñas y prototipos del equipo de Ciencia de Datos de GECI.
+MiscTools es un conjunto de herramientas pequeñas y prototipos del equipo de Ciencia de Datos de
+GECI.
 
 ## 🧰 Lista de herramientas
 
@@ -12,7 +13,7 @@ Conjunto de herramientas pequeñas y prototipos del equipo de Ciencia de Datos d
 
 ### 📋 Prerequisitos
 
-Estas instrucciones son para instalar y configurar **misctools** en Ubuntu 20.04 (Focal Fossa).
+Estas instrucciones son para instalar y configurar **MiscTools** en Ubuntu 20.04 (Focal Fossa).
 
 Instala Docker y Make.
 
