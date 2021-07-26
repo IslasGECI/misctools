@@ -14,7 +14,7 @@ install:
 	chmod +x ./src/*
 	mkdir --parents /usr/local/bin
 	cp --preserve ./src/* /usr/local/bin
-	export PATH="/usr/local/bin:$${PATH}"
-	# Instala esquemas de JSONs
-	mkdir --parents /usr/local/bin $${HOME}/.schemas
-	cp schemas/*.json $${HOME}/.schemas/
+	export PATH="/usr/local/bin:${PATH}"
+# Instala esquemas de JSONs
+	mkdir --parents /usr/local/bin ${HOME}/.schemas
+	cp schemas/*.json ${HOME}/.schemas/
