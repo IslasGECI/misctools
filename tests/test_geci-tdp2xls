@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-rm metadatos_*.csv --force # La opción '--force' evita error si los archivos no existen
-rm tabla.xlsx --force # La opción '--force' evita error si los archivos no existen
+
+rm metadatos_*.csv --force
+rm tabla.xlsx --force
 geci-tdp2xls
 ssconvert --export-file-per-sheet tabla.xlsx tabla.csv
 md5_expected="fbc9207e1e67f54f1aef5cea32f88bad"
