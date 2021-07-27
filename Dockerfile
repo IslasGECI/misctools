@@ -4,6 +4,7 @@ COPY . .
 
 # Define variables de entorno
 ENV DEBIAN_FRONTEND=noninteractive
+ENV PATH="/root/.local/lib/shellspec:/workdir/src:$PATH"
 ENV PYTHONIOENCODING=utf-8
 ENV QT_QPA_PLATFORM=offscreen
 ENV TZ=US/Pacific
@@ -30,10 +31,7 @@ RUN pip install \
       jsonschema
 
 # Instala ShellSpec
-RUN curl -fsSL https://git.io/shellspec | sh -s -- --yes
-ENV PATH="/root/.local/lib/shellspec:$PATH"
+RUN curl --fail --location https://git.io/shellspec --show-error --silent | sh -s -- --yes
 
-# Instala misctools
-RUN make install
-
-CMD [ "make" ]
+# Make script executable
+RUN chmod +x /workdir/src/*
