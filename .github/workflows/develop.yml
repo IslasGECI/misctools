@@ -1,0 +1,25 @@
+name: Push latest
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  actions:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Copia repositorio
+      uses: actions/checkout@v2
+    - name: Construye imagen
+      run: docker build --tag islasgeci/misctools:latest --tag islasgeci/misctools:${GITHUB_SHA:0:4} .
+    - name: Ejecuta pruebas
+      run: docker run islasgeci/misctools:latest make --makefile=tests/Makefile tests
+    - name: Docker log-in
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+    - name: Sube latest a Docker Hub
+      run: docker push islasgeci/misctools:latest
+    - name: Sube sha a Docker Hub
+      run: docker push islasgeci/misctools:${GITHUB_SHA:0:4}
+      
