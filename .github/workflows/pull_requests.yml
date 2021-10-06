@@ -1,13 +1,9 @@
-name: Tests
+name: Push on PR
 on:
   pull_request:
     branches:
       - develop
-      - master
-  push:
-    branches:
-      - develop
-      - master
+      - main
 jobs:
   actions:
     runs-on: ubuntu-latest
@@ -15,6 +11,6 @@ jobs:
     - name: Copia repositorio
       uses: actions/checkout@v2
     - name: Construye imagen
-      run: docker build --tag islasgeci/misctools .
+      run: docker build --tag islasgeci/misctools:latest .
     - name: Ejecuta pruebas
-      run: docker run islasgeci/misctools make --makefile=tests/Makefile tests
+      run: docker run islasgeci/misctools:latest make --makefile=tests/Makefile tests

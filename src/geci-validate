@@ -4,7 +4,7 @@
 
 # ARGUMENTOS:
 NOMBRE=${0##*/}
-OPCIONES_GOODTABLES=${@:1:$#-1}
+OPCIONES_FRICTIONLESS=${@:1:$#-1}
 DATAPACKAGE=${!#}
 
 # CONSTANTES:
@@ -18,7 +18,7 @@ function get_help {
   echo "$NOMBRE verifica que un data package cumple con el protocolo de GECI."
   echo
   echo "Sintaxis:"
-  echo "  $NOMBRE [[OPCIÓN] | [[OPCIONES DE GOODTABLES] RUTA]"
+  echo "  $NOMBRE [[OPCIÓN] | [[OPCIONES DE FRICTIONLESS] RUTA]"
   echo
   echo "  OPCIÓN:   Alguna de las opciones que se enlistan abajo"
   echo "  RUTA:     Ruta del directorio donde se encuentra 'datapackage.json'"
@@ -46,7 +46,7 @@ function validate {
   pwd
 
   # Valida el data package
-  goodtables validate $OPCIONES_GOODTABLES datapackage.json
+  frictionless validate $OPCIONES_FRICTIONLESS datapackage.json
   ERROR=$(($ERROR+$?))
   jsonschema --instance datapackage.json /workdir/schemas/tabular-data-package.json
   ERROR=$(($ERROR+$?))
