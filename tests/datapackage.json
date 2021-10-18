@@ -57,7 +57,7 @@
             "axis": "T",
             "standard_name": "date",
             "type": "integer",
-            "constraints": {"minumum": 2015}
+            "constraints": {"minimum": 2015}
           },
           { "name": "subcolonia",
             "description": "Subcolonia en que se realizó en monitoreo",
@@ -75,7 +75,7 @@
             "axis": "",
             "standard_name": "",
             "type": "integer",
-            "constraints": {"minumum": 1}
+            "constraints": {"minimum": 1}
           },
           { "name": "darvic",
             "description": "Clave de indentificación del anillo de Darvic",
