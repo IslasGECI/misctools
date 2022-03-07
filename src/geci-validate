@@ -46,7 +46,9 @@ function validate {
   pwd
 
   # Valida el data package
-  frictionless validate $OPCIONES_FRICTIONLESS datapackage.json
+  goodtables validate datapackage.json
+  ERROR=$(($ERROR+$?))
+  frictionless validate $OPCIONES_FRICTIONLESS datapackage.json --type package
   ERROR=$(($ERROR+$?))
   jsonschema --instance datapackage.json ${HOME}/.schemas/tabular-data-package.json
   ERROR=$(($ERROR+$?))
