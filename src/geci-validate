@@ -40,7 +40,7 @@ function validate {
   # Despliega la ruta del data package
   echo
   echo "---"
-  cd $DATAPACKAGE_DIRECTORY
+  cd "${DATAPACKAGE_DIRECTORY}" || exit 1
   pwd
 
   # Valida el data package
@@ -59,7 +59,7 @@ function validate {
 
 # MAIN:
 if [[ "$#" == "0" ]]; then
-  echo 'ERROR: Expected PATH as first argument' >/dev/stderr
+  echo "ERROR: Expected PATH as first argument" >/dev/stderr
   exit 1
 fi
 
