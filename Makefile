@@ -1,11 +1,14 @@
+# Enlista phonies
+.PHONY: \
+	install \
+	setup \
+	tests
+
 # Instala estas herramientas miscelaneas
 install:
 	docker pull islasgeci/misctools:latest
 	cat ./.bash_aliases >> ~/.bash_aliases
 	. ./.bash_aliases
-
-# Enlista phonies
-.PHONY: install
 
 # El setup se correrá exclusivamente dentro del contenedor
 setup:
@@ -17,3 +20,8 @@ setup:
 # Instala esquemas de JSONs
 	mkdir --parents $${HOME}/.schemas
 	cp schemas/*.json $${HOME}/.schemas/
+
+tests:
+	tests/test_geci-tdp2xls
+	shellspec tests/
+

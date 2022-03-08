@@ -13,4 +13,4 @@ jobs:
     - name: Construye imagen
       run: docker build --tag islasgeci/misctools:latest .
     - name: Ejecuta pruebas
-      run: docker run islasgeci/misctools:latest make --makefile=tests/Makefile tests
+      run: docker run islasgeci/misctools:latest make tests

@@ -12,7 +12,7 @@ jobs:
     - name: Construye imagen
       run: docker build --tag islasgeci/misctools:stable --tag islasgeci/misctools:${GITHUB_SHA:0:4} .
     - name: Ejecuta pruebas
-      run: docker run islasgeci/misctools:stable make --makefile=tests/Makefile tests
+      run: docker run islasgeci/misctools:stable make tests
     - name: Docker log-in
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
