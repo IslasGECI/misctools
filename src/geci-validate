@@ -3,9 +3,9 @@
 # Verifica que un data package cumple con el protocolo de GECI
 
 # ARGUMENTOS:
-NOMBRE=${0##*/}
-DATAPACKAGE_DIRECTORY=${1}
-OPCIONES_GOODTABLES=${*:2}
+NOMBRE="${0##*/}"
+DATAPACKAGE_DIRECTORY="${1}"
+OPCIONES_GOODTABLES="${*:2}"
 
 # CONSTANTES:
 DIR0="${PWD}"
