@@ -4,7 +4,7 @@ COPY . .
 
 # Define variables de entorno
 ENV DEBIAN_FRONTEND=noninteractive
-ENV PATH="/root/.local/lib/shellspec:/workdir/src:$PATH"
+ENV PATH="/root/.local/lib/shellspec:$PATH"
 ENV PYTHONIOENCODING=utf-8
 ENV QT_QPA_PLATFORM=offscreen
 ENV TZ=US/Pacific
@@ -34,4 +34,4 @@ RUN pip install \
 RUN curl --fail --location https://git.io/shellspec --show-error --silent | sh -s -- --yes
 
 # Make script executable
-RUN chmod +x /workdir/src/*
+RUN make setup

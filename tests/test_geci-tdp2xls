@@ -4,7 +4,7 @@ rm metadatos_*.csv --force
 rm tabla.xlsx --force
 geci-tdp2xls
 ssconvert --export-file-per-sheet tabla.xlsx tabla.csv
-md5_expected="fbc9207e1e67f54f1aef5cea32f88bad"
+md5_expected="88c2ac9bd83c29376fe1bfc8d7b55ffd"
 md5_gotten=$(cat $(ls tabla.csv*) | md5sum | cut --delimiter=" " --fields=1)
 rm tabla.csv*
 echo "Esperado: $md5_expected"

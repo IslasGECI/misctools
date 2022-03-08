@@ -4,8 +4,8 @@
 
 # ARGUMENTOS:
 NOMBRE=${0##*/}
-OPCIONES_FRICTIONLESS=${@:1:$#-1}
-DATAPACKAGE=${!#}
+DATAPACKAGE_DIRECTORY=${1}
+OPCIONES_FRICTIONLESS=${@:2}
 
 # CONSTANTES:
 DIR0=$PWD
@@ -17,20 +17,9 @@ ERROR=0
 function get_help {
   echo "$NOMBRE verifica que un data package cumple con el protocolo de GECI."
   echo
-  echo "Sintaxis:"
-  echo "  $NOMBRE [[OPCIÓN] | [[OPCIONES DE FRICTIONLESS] RUTA]"
-  echo
-  echo "  OPCIÓN:   Alguna de las opciones que se enlistan abajo"
-  echo "  RUTA:     Ruta del directorio donde se encuentra 'datapackage.json'"
-  echo
   echo "Opciones:"
   echo "  -h, --help     Despliega este mensaje de ayuda"
   echo "  -v, --version  Muestra la versión de $NOMBRE"
-  echo
-  echo "Ejemplos:"
-  echo "  cd <RUTA-A-DATAPACKAGE> && $NOMBRE"
-  echo "  $NOMBRE <RUTA-A-DATAPACKAGE>"
-  echo "  $NOMBRE --skip-checks duplicate-row <RUTA-A-DATAPACKAGE>"
   echo
 }
 
@@ -42,15 +31,15 @@ function validate {
   # Despliega la ruta del data package
   echo
   echo "---"
-  cd $DATAPACKAGE
+  cd $DATAPACKAGE_DIRECTORY
   pwd
 
   # Valida el data package
   frictionless validate $OPCIONES_FRICTIONLESS datapackage.json
   ERROR=$(($ERROR+$?))
-  jsonschema --instance datapackage.json /workdir/schemas/tabular-data-package.json
+  jsonschema --instance datapackage.json ${HOME}/.schemas/tabular-data-package.json
   ERROR=$(($ERROR+$?))
-  jsonschema --instance datapackage.json /workdir/schemas/protocolo-geci.json
+  jsonschema --instance datapackage.json ${HOME}/.schemas/protocolo-geci.json
   ERROR=$(($ERROR+$?))
   cd $DIR0
   echo "..."
