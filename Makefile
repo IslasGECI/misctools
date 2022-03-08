@@ -1,8 +1,12 @@
 # Enlista phonies
 .PHONY: \
+	check \
 	install \
 	setup \
 	tests
+
+check:
+	shellcheck --shell=bash src/geci-*
 
 # Instala estas herramientas miscelaneas
 install:

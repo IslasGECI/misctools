@@ -12,5 +12,7 @@ jobs:
       uses: actions/checkout@v2
     - name: Construye imagen
       run: docker build --tag islasgeci/misctools:latest .
+    - name: Checa formato
+      run: docker run islasgeci/misctools:latest make check
     - name: Ejecuta pruebas
       run: docker run islasgeci/misctools:latest make tests

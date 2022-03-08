@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
       python \
       python3-pip \
       r-base \
+      shellcheck \
         && \
     apt clean
 
