@@ -28,6 +28,7 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
 # Instala módulos con pip
 RUN pip install \
       frictionless \
+      goodtables \
       jsonschema
 
 # Instala ShellSpec
