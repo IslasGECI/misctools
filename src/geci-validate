@@ -48,9 +48,9 @@ function validate {
   ERROR=$((ERROR+$?))
   frictionless validate datapackage.json
   ERROR=$((ERROR+$?))
-  jsonschema --instance datapackage.json ${HOME}/.schemas/tabular-data-package.json
+  jsonschema --instance datapackage.json "${HOME}/.schemas/tabular-data-package.json"
   ERROR=$((ERROR+$?))
-  jsonschema --instance datapackage.json ${HOME}/.schemas/protocolo-geci.json
+  jsonschema --instance datapackage.json "${HOME}/.schemas/protocolo-geci.json"
   ERROR=$((ERROR+$?))
   cd "${DIR0}" || exit 1
   echo "..."
