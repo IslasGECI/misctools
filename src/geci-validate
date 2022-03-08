@@ -5,7 +5,7 @@
 # ARGUMENTOS:
 NOMBRE=${0##*/}
 DATAPACKAGE_DIRECTORY=${1}
-OPCIONES_GOODTABLES=${@:2}
+OPCIONES_GOODTABLES=${*:2}
 
 # CONSTANTES:
 DIR0=$PWD
@@ -49,11 +49,11 @@ function validate {
 }
 
 # MAIN:
-if [[ $# == 0 ]]; then
+if [[ "$#" == "0" ]]; then
   validate
 fi
 
-if [[ $# == 1 ]]; then
+if [[ "$#" == "1" ]]; then
   case "$1" in
     -h | --help ) get_help ;;
     -v | --version ) get_version ;;
@@ -61,6 +61,6 @@ if [[ $# == 1 ]]; then
   esac
 fi
 
-if [[ $# > 1 ]]; then
+if [[ "$#" -gt "1" ]]; then
   validate
 fi
