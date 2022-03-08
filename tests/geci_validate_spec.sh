@@ -31,7 +31,7 @@ Describe "geci-validate"
     The stdout should include "duplicate-row"
   End
 
-  It "accept option --skip-checks"
+  It "accepts option --skip-checks"
     When call src/geci-validate tests/duplicate_row_tdp --skip-checks duplicate-row
     The status should be success
     The stdout should include "'valid': True"
