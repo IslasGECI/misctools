@@ -24,4 +24,10 @@ Describe "geci-validate"
     The stdout should include "# valid: morfometria_albatros-laysan_guadalupe.csv"
   End
 
+  It "fails when a duplicate row is present"
+    When call src/geci-validate tests/duplicate_row_tdp
+    The status should be failure
+    The stdout should include "'valid': False"
+    The stdout should include "duplicate-row"
+  End
 End
