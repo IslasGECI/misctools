@@ -36,14 +36,14 @@ function validate {
 
   # Valida el data package
   goodtables validate $OPCIONES_GOODTABLES datapackage.json
-  ERROR=$(($ERROR+$?))
+  ERROR=$((ERROR+$?))
   frictionless validate datapackage.json
-  ERROR=$(($ERROR+$?))
+  ERROR=$((ERROR+$?))
   jsonschema --instance datapackage.json ${HOME}/.schemas/tabular-data-package.json
-  ERROR=$(($ERROR+$?))
+  ERROR=$((ERROR+$?))
   jsonschema --instance datapackage.json ${HOME}/.schemas/protocolo-geci.json
-  ERROR=$(($ERROR+$?))
-  cd $DIR0
+  ERROR=$((ERROR+$?))
+  cd "${DIR0}" || exit 1
   echo "..."
   exit $ERROR
 }
