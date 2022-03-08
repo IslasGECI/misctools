@@ -7,8 +7,7 @@ Describe "geci-validate"
     cd tests/valid_tdp
     When call ../../src/geci-validate
     The status should be failure
-    The stderr should include "'datapackage.json' does not exist."
-    The stdout should include "# invalid: datapackage.json"
+    The stderr should include "ERROR: Expected PATH as first argument"
   End
 
   It "accepts a dot as first argument"

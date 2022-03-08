@@ -50,7 +50,8 @@ function validate {
 
 # MAIN:
 if [[ "$#" == "0" ]]; then
-  validate
+  echo 'ERROR: Expected PATH as first argument' >/dev/stderr
+  exit 1
 fi
 
 if [[ "$#" == "1" ]]; then
