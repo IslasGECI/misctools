@@ -35,4 +35,10 @@ Describe "geci-validate"
     The status should be success
     The stdout should include "'valid': True"
   End
+
+  It "accepts option --help"
+    When call src/geci-validate --help
+    The status should be success
+    The stdout should include "verifica que un data package cumple con el protocolo de GECI"
+  End
 End
