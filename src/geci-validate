@@ -5,7 +5,7 @@
 # ARGUMENTOS:
 NOMBRE="${0##*/}"
 DATAPACKAGE_DIRECTORY="${1}"
-OPCIONES_GOODTABLES="${*:2}"
+OPCIONES_GOODTABLES=("${@:2}")
 
 # CONSTANTES:
 DIR0="${PWD}"
@@ -44,7 +44,7 @@ function validate {
   pwd
 
   # Valida el data package
-  goodtables validate ${OPCIONES_GOODTABLES} datapackage.json
+  goodtables validate "${OPCIONES_GOODTABLES[@]}" datapackage.json
   ERROR=$((ERROR+$?))
   frictionless validate datapackage.json
   ERROR=$((ERROR+$?))
