@@ -3,4 +3,4 @@
 # Usa jsonschema para verificar la estructura de analyses.json
 
 INSTANCE=${1:-analyses.json}
-jsonschema --instance $INSTANCE ${HOME}/.schemas/analyses-schema.json
+jsonschema --instance "${INSTANCE}" "${HOME}/.schemas/analyses-schema.json"

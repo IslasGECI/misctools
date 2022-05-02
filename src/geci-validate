@@ -3,12 +3,12 @@
 # Verifica que un data package cumple con el protocolo de GECI
 
 # ARGUMENTOS:
-NOMBRE=${0##*/}
-DATAPACKAGE_DIRECTORY=${1}
-OPCIONES_FRICTIONLESS=${@:2}
+NOMBRE="${0##*/}"
+DATAPACKAGE_DIRECTORY="${1}"
+OPCIONES_GOODTABLES=("${@:2}")
 
 # CONSTANTES:
-DIR0=$PWD
+DIR0="${PWD}"
 
 # VARIABLES:
 ERROR=0
@@ -17,41 +17,53 @@ ERROR=0
 function get_help {
   echo "$NOMBRE verifica que un data package cumple con el protocolo de GECI."
   echo
-  echo "Opciones:"
+  echo "$NOMBRE PATH [GOODTABLES_OPTIONS]"
+  echo "$NOMBRE OPTION"
+  echo
+  echo "Examples:"
+  echo "  $NOMBRE ."
+  echo "  $NOMBRE path/to/tdp --skip-checks duplicate-row"
+  echo "  $NOMBRE --version"
+  echo "  $NOMBRE -h"
+  echo
+  echo "Options:"
   echo "  -h, --help     Despliega este mensaje de ayuda"
   echo "  -v, --version  Muestra la versión de $NOMBRE"
   echo
 }
 
 function get_version {
-  echo "$NOMBRE v0.1.0+$(md5sum $0 | cut --characters=1-4)"
+  echo "$NOMBRE v0.1.0+$(md5sum "$0" | cut --characters=1-4)"
 }
 
 function validate {
   # Despliega la ruta del data package
   echo
   echo "---"
-  cd $DATAPACKAGE_DIRECTORY
+  cd "${DATAPACKAGE_DIRECTORY}" || exit 1
   pwd
 
   # Valida el data package
-  frictionless validate $OPCIONES_FRICTIONLESS datapackage.json
-  ERROR=$(($ERROR+$?))
-  jsonschema --instance datapackage.json ${HOME}/.schemas/tabular-data-package.json
-  ERROR=$(($ERROR+$?))
-  jsonschema --instance datapackage.json ${HOME}/.schemas/protocolo-geci.json
-  ERROR=$(($ERROR+$?))
-  cd $DIR0
+  goodtables validate "${OPCIONES_GOODTABLES[@]}" datapackage.json
+  ERROR=$((ERROR+$?))
+  frictionless validate datapackage.json
+  ERROR=$((ERROR+$?))
+  jsonschema --instance datapackage.json "${HOME}/.schemas/tabular-data-package.json"
+  ERROR=$((ERROR+$?))
+  jsonschema --instance datapackage.json "${HOME}/.schemas/protocolo-geci.json"
+  ERROR=$((ERROR+$?))
+  cd "${DIR0}" || exit 1
   echo "..."
   exit $ERROR
 }
 
 # MAIN:
-if [[ $# == 0 ]]; then
-  validate
+if [[ "$#" == "0" ]]; then
+  echo "ERROR: Expected PATH as first argument" >/dev/stderr
+  exit 1
 fi
 
-if [[ $# == 1 ]]; then
+if [[ "$#" == "1" ]]; then
   case "$1" in
     -h | --help ) get_help ;;
     -v | --version ) get_version ;;
@@ -59,6 +71,6 @@ if [[ $# == 1 ]]; then
   esac
 fi
 
-if [[ $# > 1 ]]; then
+if [[ "$#" -gt "1" ]]; then
   validate
 fi

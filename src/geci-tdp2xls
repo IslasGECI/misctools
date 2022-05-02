@@ -10,5 +10,5 @@ nombre_tabla_datos=$(< datapackage.json jq '.resources[0].path' | cut --delimite
 < datapackage.json jq '[.resources[0] | del(.schema)]' | in2csv --format json --verbose > metadatos_tabla.csv
 # A los metadatos del paquete debemos quitarle ('del') los metadatos de las tablas '.resources'
 < datapackage.json jq '[del(.resources)]' | in2csv --format json --verbose > metadatos_paquete.csv
-ssconvert --merge-to tabla.xlsx $nombre_tabla_datos metadatos_columna.csv metadatos_tabla.csv metadatos_paquete.csv
+ssconvert --merge-to tabla.xlsx "${nombre_tabla_datos}" metadatos_columna.csv metadatos_tabla.csv metadatos_paquete.csv
 rm metadatos_columna.csv metadatos_tabla.csv metadatos_paquete.csv

@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
 
+cd tests/valid_tdp/
 rm metadatos_*.csv --force
+rm tabla.csv* --force
 rm tabla.xlsx --force
-geci-tdp2xls
+geci-tdp2xls tests/valid_tdp
 ssconvert --export-file-per-sheet tabla.xlsx tabla.csv
 md5_expected="88c2ac9bd83c29376fe1bfc8d7b55ffd"
 md5_gotten=$(cat $(ls tabla.csv*) | md5sum | cut --delimiter=" " --fields=1)
-rm tabla.csv*
+rm metadatos_*.csv --force
+rm tabla.csv* --force
+rm tabla.xlsx --force
+cd ../../
 echo "Esperado: $md5_expected"
 echo "Obtenido: $md5_gotten"
 if [ "$md5_expected" = "$md5_gotten" ]; then
