@@ -1,5 +1,3 @@
-SHELL := /bin/bash
-
 # Enlista phonies
 .PHONY: \
 	check \
