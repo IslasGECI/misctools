@@ -12,7 +12,6 @@ check:
 install:
 	docker pull islasgeci/misctools:latest
 	cat ./.bash_aliases >> ~/.bash_aliases
-	. ./.bash_aliases
 
 # El setup se correrá exclusivamente dentro del contenedor
 setup:
