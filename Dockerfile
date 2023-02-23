@@ -28,9 +28,9 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
 
 # Instala módulos con pip
 RUN pip install \
+      check-jsonschema \
       frictionless \
-      goodtables \
-      jsonschema
+      goodtables
 
 # Instala ShellSpec
 RUN curl --fail --location https://git.io/shellspec --show-error --silent | sh -s -- --yes

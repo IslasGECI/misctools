@@ -9,7 +9,7 @@ GECI.
 
 | Herramienta         | Descripción                                                  |
 | ------------------- | ------------------------------------------------------------ |
-| geci-checkanalyses  | Usa jsonschema para verificar la estructura de analyses.json |
+| geci-checkanalyses  | Usa check-jsonschema para verificar la estructura de analyses.json |
 | geci-tdp2xls        | Transforma tabular data packages a Excel                     |
 | geci-validate       | Verifica que un data package cumple con el protocolo de GECI |
 
