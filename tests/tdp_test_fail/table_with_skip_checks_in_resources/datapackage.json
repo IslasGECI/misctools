@@ -1,0 +1,170 @@
+{
+    "name": "conteo_transectos_lagartijas_cangrejos_chinchorro",
+    "schema": "tabular-data-package",
+    "profile": "tabular-data-package",
+    "institution": "Grupo de Ecología y Conservación de Islas",
+    "resources": [
+        {
+            "path": "transectos_lagartijas_cangrejos_chinchorro.csv",
+            "profile": "tabular-data-resource",
+            "name": "conteo_transectos_lagartijas_cangrejos_chinchorro",
+            "format": "csv",
+            "mediatype": "text/csv",
+            "encoding": "utf-8",
+            "title": "Seasonal monitoring of native fauna in the Banco Chinchorro Biosphere Reserve",
+            "titulo": "Monitoreos estacionales de fauna nativa en la Reserva de la Biosfera Banco Chinchorro",
+            "skip_checks": "duplicate-row",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "Fecha",
+                        "type": "string",
+                        "format": "default",
+                        "constraints": {
+                            "pattern": "(0[1-9]|[1-2][0-9]|3[01])\/(Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|Oct|Nov|Dic)\/(1[89][0-9]{2}|2[0-9]{3})"
+                        },
+                        "description": "Fecha en que se muestreo el cudrante especificado en formato dd/Mmm/aaaa (ejemplo: 01/Ene/2000)",
+                        "long_name": "Date",
+                        "nombre_largo": "Fecha",
+                        "standard_name": "date",
+                        "axis": "T"
+                    },
+                    {
+                        "name": "Hora",
+                        "type": "time",
+                        "format": "default",
+                        "description": "Hora en que se realizo el muestreo",
+                        "long_name": "Time",
+                        "nombre_largo": "Hora",
+                        "standard_name": "time",
+                        "axis": "T"
+                    },
+                    {
+                        "name": "Islote",
+                        "type": "string",
+                        "format": "default",
+                        "constraints": {"enum": ["Cayo Centro", "Cayo Lobos", "Cayo Norte Menor", "Cayo Norte Mayor"]},
+                        "description": "Nombre del islote en que fue realizado el monitoreo",
+                        "long_name": "Islet",
+                        "nombre_largo": "Islote",
+                        "axis": "",
+                        "standard_name": ""
+                    },
+                    {
+                        "name": "Metodo",
+                        "type": "integer",
+                        "format": "default",
+                        "constraints": {"minimum": 1,"maximum": 3},
+                        "description": "Clave del metodo de muestreo utilizado",
+                        "comment": "Transecto de 200 m de largo sin ancho definido (1), Transecto de 25 m de largo y 1 de ancho (2), 25 m de largo sin ancho definido (3)",
+                        "long_name": "Sampling method",
+                        "nombre_largo": "Método de muestreo",
+                        "axis": "",
+                        "standard_name": ""
+                    },
+                    {
+                        "name": "Transecto",
+                        "type": "integer",
+                        "format": "default",
+                        "constraints": {"minimum": 1},
+                        "description": "Numero de transecto",
+                        "long_name": "Transect number",
+                        "nombre_largo": "Número de transecto",
+                        "axis": "",
+                        "standard_name": ""
+                    },
+                    {
+                        "name": "Longitud",
+                        "type": "integer",
+                        "format": "default",
+                        "constraints": {"minimum": 1},
+                        "description": "Longitud en metros del transecto",
+                        "long_name": "Transect length",
+                        "nombre_largo": "Longitud del transecto",
+                        "units": "m",
+                        "axis": "",
+                        "standard_name": ""
+                        
+                    },
+                    {
+                        "name": "Habitat",
+                        "type": "string",
+                        "format": "default",
+                        "constraints": {"enum": ["costa", "manglar", "perturbado", "selva"]},
+                        "description": "Tipo de habitat en que se realizo el transecto",
+                        "long_name": "Habitat type",
+                        "nombre_largo": "Tipo de hábitat",
+                        "axis": "",
+                        "standard_name": ""
+                    },
+                    {
+                        "name": "Especie",
+                        "type": "string",
+                        "format": "default",
+                        "constraints": {"enum": [
+                                "Anolis allisoni",
+                                "Anolis sagrei",
+                                "Anolis sp",
+                                "Aristelliger georgeensis",
+                                "Aspidoscelis maslini",
+                                "Cardisoma guanhumi",
+                                "Coenobita clypeatus",
+                                "Ctenosaura similis",
+                                "Gecarcinus lateralis",
+                                "Hemidactylus frenatus",
+                                "Iguana iguana",
+                                "Ocypode quadrata"
+                            ]},
+                        "description": "Nombre científico de la especie",
+                        "long_name": "Species",
+                        "nombre_largo": "Especie",
+                        "axis": "",
+                        "standard_name": ""
+                    },
+                    {
+                        "name": "Grupo",
+                        "type": "string",
+                        "format": "default",
+                        "constraints": {"enum": [
+                                "lagartija",
+                                "cangrejo",
+                                "gecko",
+                                "iguana"
+                            ]},
+                        "description": "Conjunto integrado por especies estrechamente relacionadas que guardan entre sí características particulares que permiten agruparlas y distinguirlas de otras especies congenéricas",
+                        "long_name": "Species complex",
+                        "nombre_largo": "Grupo de especies",
+                        "axis": "",
+                        "standard_name": "Species complex"
+                    },
+                    {
+                        "name": "Distancia",
+                        "type": "number",
+                        "format": "default",
+                        "constraints": {"minimum": 0},
+                        "description": "Distancia a la que se avisto el organismo respecto al transecto",
+                        "long_name": "Distance from the transect",
+                        "nombre_largo": "Distancia de avistamiento",
+                        "units": "m",
+                        "axis": "",
+                        "standard_name": ""
+                    },
+                    {
+                        "name": "Individuos",
+                        "type": "integer",
+                        "format": "default",
+                        "constraints": {"minimum": 0},
+                        "description": "Cantidad de individuos observados",
+                        "long_name": "Amount individuals",
+                        "nombre_largo": "Cantidad de individuos",
+                        "axis": "",
+                        "standard_name": ""
+                    }
+                ],
+                "missingValues": [
+                    "NA"
+                ]
+            }
+        }
+    ]
+}
