@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 # Enlista phonies
 .PHONY: \
 	check \
@@ -12,6 +14,7 @@ check:
 install:
 	docker pull islasgeci/misctools:latest
 	cat ./.bash_aliases >> ~/.bash_aliases
+	source ~/.bash_aliases
 
 # El setup se correrá exclusivamente dentro del contenedor
 setup:
