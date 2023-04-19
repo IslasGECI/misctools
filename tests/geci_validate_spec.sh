@@ -14,13 +14,15 @@ Describe "geci-validate"
     cd tests/valid_tdp
     When call ../../src/geci-validate .
     The status should be success
-    The stdout should include "# valid: morfometria_albatros-laysan_guadalupe.csv"
+    The stdout should include "'valid': True"
+    The stdout should include "morfometria_albatros-laysan_guadalupe.csv"
   End
 
   It "accepts a relative path as first argument"
     When call src/geci-validate tests/valid_tdp
     The status should be success
-    The stdout should include "# valid: morfometria_albatros-laysan_guadalupe.csv"
+    The stdout should include "'valid': True"
+    The stdout should include "morfometria_albatros-laysan_guadalupe.csv"
   End
 
   It "fails when a duplicate row is present"
